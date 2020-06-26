@@ -16,7 +16,6 @@ class CategoryItemsTableSeeder extends Seeder
         // Create 25 section records
         for ($i = 0; $i < 25; $i++) {
             ItemCategory::create([
-                'category_id' => $faker->randomNumber(2),
                 'name' => $faker->name,
                 'description' => $faker->paragraph,
                 'address_item_id' => $faker->randomNumber(2),
