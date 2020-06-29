@@ -92,7 +92,7 @@ class ItemsCategoryController extends BaseController
             'website' => $input['website'],
             'phone' => $input['phone'],
             'image_url' => $input['image_url'],
-            'delivery_available' => $input[' delivery_available'],
+            'delivery_available' => $input['delivery_available'],
             'info_hours_id' => $input['info_hours_id'],
             'info_hours_opening' => $input['info_hours_opening'],
             'info_hours_closing' => $input['info_hours_closing'],
