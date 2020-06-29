@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\ItemCategory;
 use App\Product;
+use App\ItemAddress;
 
 use Validator;
 
@@ -44,18 +45,58 @@ class ItemsCategoryController extends BaseController
      */
     public function store(Request $request)
     {
-
-        $validator = Validator::make($request->all(), [
+        $input = $request->all();
+        
+        $validator = Validator::make($input, [
             'name' => 'required|string',
-            'description' => 'required|string',
-            'image_url' => 'required|string',
+            'description' => 'string',
+            'image_url' => 'string',
+            //address
+            'address_1' => 'required|string',
+            'address_2' => 'string',
+            'house_number' => 'string',
+            'neighborhood' => 'string',
+            'city' => 'required|string',
+            'postal_code' => 'string',
+            'coordinate_latitude' => 'required|string',
+            'coordinate_longitude' => 'required|string',
+            'website' => 'string',
+            'phone' => 'string',
+            'delivery_available' => 'boolean',
+            //info hours
+            'info_hours_id' => 'required|integer',
+            'info_hours_opening' => 'required|string',
+            'info_hours_closing' => 'required|string',
         ]);
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors(), 400);       
         }
 
-        $item = ItemCategory::create($request->all());
+        //First create address
+        $address = ItemAddress::create([
+            'address_1' => $input['address_1'],
+            'address_2' => $input['address_2'],
+            'house_number' => $input['house_number'],
+            'neighborhood' => $input['neighborhood'],
+            'city' => $input['city'],
+            'postal_code' => $input['postal_code'],
+            'coordinate_latitude' => $input['coordinate_latitude'],
+            'coordinate_longitude' => $input['coordinate_longitude'],
+        ]);
+        //then, create itemcategory
+        $item = ItemCategory::create([
+            'name' => $input['name'],
+            'description' => $input['description'],
+            'address_item_id' => $address['id'],
+            'website' => $input['website'],
+            'phone' => $input['phone'],
+            'image_url' => $input['image_url'],
+            'delivery_available' => $input[' delivery_available'],
+            'info_hours_id' => $input['info_hours_id'],
+            'info_hours_opening' => $input['info_hours_opening'],
+            'info_hours_closing' => $input['info_hours_closing'],
+        ]);
  
         if(is_null($item))
             return $this->sendError('ItemCategory could not be created', 500);

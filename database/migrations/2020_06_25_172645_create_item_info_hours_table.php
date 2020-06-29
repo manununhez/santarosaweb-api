@@ -15,7 +15,7 @@ class CreateItemInfoHoursTable extends Migration
     {
         Schema::create('item_info_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('work_days_description')->nullable();
+            $table->string('work_days_description');
             $table->timestamps();
         });
     }
