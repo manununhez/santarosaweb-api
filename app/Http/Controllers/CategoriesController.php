@@ -47,8 +47,8 @@ class CategoriesController extends BaseController
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'description' => 'required|string',
-            'image_url' => 'required|string',
+            'description' => 'string',
+            'image_url' => 'string',
         ]);
 
         if($validator->fails()){
