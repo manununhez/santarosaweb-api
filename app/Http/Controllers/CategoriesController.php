@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Category;
-use App\ItemCategory;
 
 use Validator;
 
@@ -26,26 +26,15 @@ class CategoriesController extends BaseController
     {
         return $this->sendResponse($category, 'Category retrieved successfully.');
     }
-
-    /**
-     * 
-     */
-    public function showItems(Category $category)
-    {
-        $itemsId = $category->items->pluck('category_item_id');
-        $items = ItemCategory::
-            whereIn('id',$itemsId) //not repeated in UserTasks
-            ->paginate(10);
-        return $this->sendResponse($items, 'Items of category retrieved successfully.');
-    }
  
     /**
      * 
      */
     public function store(Request $request)
     {
+        $input = $request->all();
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($input, [
             'name' => 'required|string',
             'description' => 'string',
             'image_url' => 'string',
@@ -55,7 +44,13 @@ class CategoriesController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 400);       
         }
 
-        $category = Category::create($request->all());
+        $id = Str::lower(str_replace(" ", "-", $input['name']));
+        $category = Category::create([
+            'category_id' => $id,
+            'name' => $input['name'],
+            'description' => $input['description'],
+            'image_url' => $input['image_url'],
+        ]);
  
         if(is_null($category))
             return $this->sendError('Category could not be created', 500);

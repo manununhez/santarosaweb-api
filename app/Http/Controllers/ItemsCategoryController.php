@@ -27,18 +27,6 @@ class ItemsCategoryController extends BaseController
     {
         return $this->sendResponse($item, 'ItemCategory retrieved successfully.');
     }
-
-    /**
-     * 
-     */
-    public function showProducts(ItemCategory $item)
-    {
-        $productsId = $item->products->pluck('product_id');
-        $products = Product::
-            whereIn('id',$productsId) //not repeated in UserTasks
-            ->paginate(10);
-        return $this->sendResponse($products, 'Products of category retrieved successfully.');
-    }
  
     /**
      * 

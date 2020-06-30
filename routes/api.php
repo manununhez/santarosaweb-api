@@ -21,24 +21,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('sections', 'SectionsController@index');
 Route::get('sections/{section}', 'SectionsController@show');
-Route::get('sections/{section}/categories', 'SectionsController@showCategories');
 Route::post('sections','SectionsController@store');
 Route::put('sections/{section}','SectionsController@update');
 Route::delete('sections/{section}', 'SectionsController@delete');
 
+Route::get('sections/{section}/categories', 'SectionCategoriesController@show');
+Route::post('sections/{section}/categories', 'SectionCategoriesController@store');
+
 Route::get('categories', 'CategoriesController@index');
 Route::get('categories/{category}', 'CategoriesController@show');
-Route::get('categories/{category}/items', 'CategoriesController@showItems');
 Route::post('categories','CategoriesController@store');
 Route::put('categories/{category}','CategoriesController@update');
 Route::delete('categories/{category}', 'CategoriesController@delete');
 
+Route::get('categories/{category}/items', 'CategoryItemsCategoryController@show');
+Route::post('categories/{category}/items', 'CategoryItemsCategoryController@store');
+
 Route::get('items', 'ItemsCategoryController@index');
 Route::get('items/{item}', 'ItemsCategoryController@show');
-Route::get('items/{item}/products', 'ItemsCategoryController@showProducts');
 Route::post('items','ItemsCategoryController@store');
 Route::put('items/{item}','ItemsCategoryController@update');
 Route::delete('items/{item}', 'ItemsCategoryController@delete');
+
+Route::get('items/{item}/products', 'ItemCategoryProductsController@show');
+Route::post('items/{item}/products', 'ItemCategoryProductsController@store');
 
 Route::get('products', 'ProductsController@index');
 Route::get('products/{product}', 'ProductsController@show');

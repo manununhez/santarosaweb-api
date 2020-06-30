@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Section;
-use App\Category;
+
+use Exception;
 
 use Validator;
 
@@ -27,25 +29,15 @@ class SectionsController extends BaseController
         return $this->sendResponse($section, 'Section retrieved successfully.');
     }
 
-    /**
-     * 
-     */
-    public function showCategories(Section $section)
-    {
-        $categoriesId = $section->categories->pluck('category_id');
-        $categories = Category::
-            whereIn('id',$categoriesId) //not repeated in UserTasks
-            ->paginate(10);
-        return $this->sendResponse($categories, 'Section retrieved successfully.');
-    }
- 
+    
     /**
      * 
      */
     public function store(Request $request)
     {
+        $input = $request->all();
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($input, [
             'name' => 'required|string',
             'description' => 'string',
             'image_url' => 'string',
@@ -55,13 +47,20 @@ class SectionsController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 400);       
         }
 
-        $section = Section::create($request->all());
+        $id = Str::lower(str_replace(" ", "-", $input['name']));
+        $section = Section::create([
+            'section_id' => $id,
+            'name' => $input['name'],
+            'description' => $input['description'],
+            'image_url' => $input['image_url'],
+        ]);
  
         if(is_null($section))
             return $this->sendError('Section could not be created', 500);
         else
             return $this->sendResponse($section, "Section created successfully", 201);
     }
+
  
     /**
      * 
