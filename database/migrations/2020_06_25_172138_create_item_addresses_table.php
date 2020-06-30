@@ -14,7 +14,7 @@ class CreateItemAddressesTable extends Migration
     public function up()
     {
         Schema::create('item_addresses', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('item_address_id')->primary();
             $table->string('address_1');
             $table->string('address_2')->nullable();
             $table->string('house_number')->nullable();

@@ -17,6 +17,7 @@ class SectionsTableSeeder extends Seeder
         // Create 15 section records
         for ($i = 0; $i < 15; $i++) {
             Section::create([
+                'section_id' => Str::random(6),
                 'name' => $faker->name,
                 'description' => $faker->paragraph,
                 'image_url' => $faker->url,

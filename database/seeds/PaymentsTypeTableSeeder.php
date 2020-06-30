@@ -16,6 +16,7 @@ class PaymentsTypeTableSeeder extends Seeder
         // Create 5 section records
         for ($i = 0; $i < 5; $i++) {
             PaymentType::create([
+                'payment_type_id' => Str::random(6),
                 'name' => Str::random(8),
                 'description' => $faker->paragraph,
             ]);

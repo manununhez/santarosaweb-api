@@ -14,7 +14,7 @@ class CreateItemInfoHoursTable extends Migration
     public function up()
     {
         Schema::create('item_info_hours', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('info_hours_id')->primary();
             $table->string('work_days_description');
             $table->timestamps();
         });

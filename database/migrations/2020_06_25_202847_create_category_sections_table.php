@@ -15,14 +15,14 @@ class CreateCategorySectionsTable extends Migration
     {
         Schema::create('category_sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('section_id')->unsigned();
-            $table->integer('category_id')->unsigned();
+            $table->string('section_id');
+            $table->string('category_id');
             $table->timestamps();
 
             $table->unique(['section_id', 'category_id'], 'un_category_section');
 
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('cascade');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
         });
     }
 

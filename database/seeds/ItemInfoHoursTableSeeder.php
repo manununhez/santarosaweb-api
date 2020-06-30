@@ -17,6 +17,7 @@ class ItemInfoHoursTableSeeder extends Seeder
         // Create 5 section records
         for ($i = 0; $i < 5; $i++) {
             ItemInfoHours::create([
+                'info_hours_id' => Str::random(6),
                 'work_days_description' => Str::random(12),
             ]);
         }

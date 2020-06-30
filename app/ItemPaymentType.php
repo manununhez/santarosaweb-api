@@ -8,5 +8,5 @@ class ItemPaymentType extends Model
 {
     protected $table = 'item_payment_types';
 
-    protected $fillable = ['category_item_id','payment_type_id'];
+    protected $fillable = ['item_category_id','payment_type_id'];
 }

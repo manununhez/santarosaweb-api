@@ -15,14 +15,14 @@ class CreateCategoryItemCategoriesTable extends Migration
     {
         Schema::create('category_item_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->integer('category_item_id')->unsigned();
+            $table->string('category_id');
+            $table->string('item_category_id');
             $table->timestamps();
 
-            $table->unique(['category_item_id', 'category_id'], 'un_category_items_category');
+            $table->unique(['item_category_id', 'category_id'], 'un_category_items_category');
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('category_item_id')->references('id')->on('item_categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
+            $table->foreign('item_category_id')->references('item_category_id')->on('item_categories')->onDelete('cascade');
         });
     }
 

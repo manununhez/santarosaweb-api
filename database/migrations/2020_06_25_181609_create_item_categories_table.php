@@ -14,15 +14,15 @@ class CreateItemCategoriesTable extends Migration
     public function up()
     {
         Schema::create('item_categories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('item_category_id')->primary();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('address_item_id');
+            $table->string('address_item_id');
             $table->string('website')->nullable();
             $table->string('phone')->nullable();
             $table->string('image_url')->nullable();
             $table->boolean('delivery_available')->default(false);
-            $table->integer('info_hours_id');
+            $table->string('info_hours_id');
             $table->string('info_hours_opening');
             $table->string('info_hours_closing');
             $table->timestamps();

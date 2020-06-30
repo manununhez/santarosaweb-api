@@ -18,6 +18,7 @@ class ItemsAddressTableSeeder extends Seeder
         // Create 25 section records
         for ($i = 0; $i < 25; $i++) {
             ItemAddress::create([
+                'item_address_id' => Str::random(6),
                 'address_1' => $faker->address,
                 'address_2' => $faker->address,
                 'house_number' => $faker->randomNumber(2),

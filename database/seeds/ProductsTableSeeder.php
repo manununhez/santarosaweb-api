@@ -18,6 +18,7 @@ class ProductsTableSeeder extends Seeder
         // Create 25 section records
         for ($i = 0; $i < 25; $i++) {
             Product::create([
+                'product_id' => Str::random(6),
                 'name' => Str::random(8),
                 'description' => $faker->paragraph,
                 'image_url' => $faker->url,
