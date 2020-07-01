@@ -51,3 +51,46 @@ Route::get('products/{product}', 'ProductsController@show');
 Route::post('products','ProductsController@store');
 Route::put('products/{product}','ProductsController@update');
 Route::delete('products/{product}', 'ProductsController@delete');
+
+Route::get('search', function (Request $request) {
+    $searchTerm = $request->q;
+    
+    $products = App\Product::query()
+                ->select('product_id', 'name', 'price', 'image_url')
+                ->where('name', 'LIKE', "%{$searchTerm}%") 
+                ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
+                ->get();
+
+    $categories = App\Category::query()
+                ->select('category_id', 'name', 'image_url')
+                ->where('name', 'LIKE', "%{$searchTerm}%") 
+                ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
+                ->get();
+    
+    $sections = App\Section::query()
+                ->select('section_id', 'name', 'image_url')
+                ->where('name', 'LIKE', "%{$searchTerm}%") 
+                ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
+                ->get();
+    
+    $items = App\ItemCategory::query()
+                ->select('item_category_id', 'name', 'image_url')
+                ->where('name', 'LIKE', "%{$searchTerm}%") 
+                ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
+                ->get();
+
+    $result = [
+        'products' => $products,
+        'categories' => $categories,
+        'sections' => $sections,
+        'items' => $items,
+    ];
+
+    $response = [
+        'success' => true,
+        'data'    => $result,
+        'message' => "Search completed.",
+    ];
+
+    return response()->json($response, 200);
+});
