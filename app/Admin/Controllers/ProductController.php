@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 use App\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -67,10 +69,19 @@ class ProductController extends AdminController
     {
         $form = new Form(new Product());
 
+        $form->text('product_id', __('Product id'));
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));
-        $form->text('image_url', __('Image url'));
+        // $form->text('image_url', __('Image url'));
         $form->text('price', __('Price'));
+
+        $form->image('image_url', 'Image');
+
+        $form->saving(function (Form $form) {
+
+            $form->product_id = Str::lower(str_replace(" ", "-", $form->name));
+        
+        });
 
         return $form;
     }

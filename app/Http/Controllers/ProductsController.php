@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Product;
 
@@ -33,7 +34,9 @@ class ProductsController extends BaseController
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
             'name' => 'required|string',
             'description' => 'required|string',
             'image_url' => 'required|string',
@@ -44,7 +47,15 @@ class ProductsController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 400);       
         }
 
-        $product = Product::create($request->all());
+        $id = Str::lower(str_replace(" ", "-", $input['name']));
+
+        $product = Product::create([
+            'product_id' => $id,
+            'name' => $input['name'],
+            'description' => $input['description'],
+            'image_url' => $input['image_url'],
+            'price' => $input['price'],
+        ]);
  
         if(is_null($product))
             return $this->sendError('Category could not be created', 500);
