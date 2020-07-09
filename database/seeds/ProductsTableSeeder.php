@@ -17,9 +17,10 @@ class ProductsTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         // Create 25 section records
         for ($i = 0; $i < 25; $i++) {
+            $name = Str::random(8);
             Product::create([
-                'product_id' => Str::random(6),
-                'name' => Str::random(8),
+                'product_id' => Str::lower(str_replace(" ", "-", $name)),
+                'name' => $name,
                 'description' => $faker->paragraph,
                 'image_url' => $faker->url,
                 'price' => $faker->randomNumber(7),

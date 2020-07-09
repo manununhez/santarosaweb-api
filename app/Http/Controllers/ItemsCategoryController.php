@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\ItemCategory;
 use App\Product;
@@ -62,29 +63,42 @@ class ItemsCategoryController extends BaseController
         }
 
         //First create address
-        $address = ItemAddress::create([
-            'address_1' => $input['address_1'],
-            'address_2' => $input['address_2'],
-            'house_number' => $input['house_number'],
-            'neighborhood' => $input['neighborhood'],
-            'city' => $input['city'],
-            'postal_code' => $input['postal_code'],
-            'coordinate_latitude' => $input['coordinate_latitude'],
-            'coordinate_longitude' => $input['coordinate_longitude'],
-        ]);
+        try{
+            $id = 'address-'.Str::lower(str_replace(" ", "-", $input['address_1']));
+            $address = ItemAddress::create([
+                'item_address_id' => $id, //code - item name
+                'address_1' => $input['address_1'],
+                'address_2' => isset($input['address_2']) ? $input['address_2'] : null,
+                'house_number' => isset($input['house_number']) ? $input['house_number'] : null,
+                'neighborhood' => isset($input['neighborhood']) ? $input['neighborhood'] : null,
+                'city' => $input['city'],
+                'postal_code' => isset($input['postal_code']) ? $input['postal_code'] : null,
+                'coordinate_latitude' => $input['coordinate_latitude'],
+                'coordinate_longitude' => $input['coordinate_longitude'],
+            ]);
+        } catch(Exception $exception){
+            return $this->sendError($exception, 500);
+        }
+
         //then, create itemcategory
-        $item = ItemCategory::create([
-            'name' => $input['name'],
-            'description' => $input['description'],
-            'address_item_id' => $address['id'],
-            'website' => $input['website'],
-            'phone' => $input['phone'],
-            'image_url' => $input['image_url'],
-            'delivery_available' => $input['delivery_available'],
-            'info_hours_id' => $input['info_hours_id'],
-            'info_hours_opening' => $input['info_hours_opening'],
-            'info_hours_closing' => $input['info_hours_closing'],
-        ]);
+        try{
+            $id = Str::lower(str_replace(" ", "-", $input['name']));
+            $item = ItemCategory::create([
+                'item_category_id' => $id,
+                'name' => $input['name'],
+                'description' => isset($input['description']) ? $input['description'] : null,
+                'address_item_id' => $address['item_address_id'],
+                'website' => isset($input['website']) ? $input['website'] : null,
+                'phone' => isset($input['phone']) ? $input['phone'] : null,
+                'image_url' => isset($input['image_url']) ? $input['image_url'] : null,
+                'delivery_available' => $input['delivery_available'],
+                'info_hours_id' => $input['info_hours_id'],
+                'info_hours_opening' => $input['info_hours_opening'],
+                'info_hours_closing' => $input['info_hours_closing'],
+            ]);
+        } catch(Exception $exception){
+            return $this->sendError($exception, 500);
+        }
  
         if(is_null($item))
             return $this->sendError('ItemCategory could not be created', 500);

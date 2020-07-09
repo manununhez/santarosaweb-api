@@ -15,9 +15,10 @@ class PaymentsTypeTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         // Create 5 section records
         for ($i = 0; $i < 5; $i++) {
+            $name = Str::random(8);
             PaymentType::create([
-                'payment_type_id' => Str::random(6),
-                'name' => Str::random(8),
+                'payment_type_id' => Str::lower(str_replace(" ", "-", $name)),
+                'name' => $name,
                 'description' => $faker->paragraph,
             ]);
         }

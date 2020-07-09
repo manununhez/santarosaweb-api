@@ -15,9 +15,10 @@ class CategoriesTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         // Create 15 section records
         for ($i = 0; $i < 25; $i++) {
+            $name = Str::random(8);
             Category::create([
-                'category_id' => Str::random(6),
-                'name' => $faker->name,
+                'category_id' => Str::lower(str_replace(" ", "-", $name)),
+                'name' => $name,
                 'description' => $faker->paragraph,
                 'image_url' => $faker->url,
             ]);

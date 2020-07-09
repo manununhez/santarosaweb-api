@@ -64,7 +64,7 @@ class CategoryItemsCategoryController extends BaseController
 
         //First create address
         try{
-            $id = 'address-'.Str::lower(str_replace(" ", "-", $input['name']));
+            $id = 'address-'.Str::lower(str_replace(" ", "-", $input['address_1']));
             $address = ItemAddress::create([
                 'item_address_id' => $id, //code - item name
                 'address_1' => $input['address_1'],

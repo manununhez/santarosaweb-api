@@ -17,9 +17,10 @@ class ItemsAddressTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         // Create 25 section records
         for ($i = 0; $i < 25; $i++) {
+            $address1 = $faker->address;
             ItemAddress::create([
-                'item_address_id' => Str::random(6),
-                'address_1' => $faker->address,
+                'item_address_id' => 'address-'.Str::lower(str_replace(" ", "-", $address1)),
+                'address_1' => $address1,
                 'address_2' => $faker->address,
                 'house_number' => $faker->randomNumber(2),
                 'neighborhood' => Str::random(10),

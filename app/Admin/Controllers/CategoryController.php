@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 use App\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -29,9 +31,16 @@ class CategoryController extends AdminController
         $grid->column('category_id', __('Category id'));
         $grid->column('name', __('Nombre'));
         $grid->column('description', __('Descripción'));
-        $grid->column('image_url', __('Image (URL)'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('image_url', __('Imagen (URL)'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+
+        // The filter($callback) method is used to set up a simple search box for the table
+        $grid->filter(function ($filter) {
+
+            // Sets the range query for the created_at field
+            $filter->between('created_at', 'Created Time')->datetime();
+        });
 
         return $grid;
     }
@@ -47,9 +56,9 @@ class CategoryController extends AdminController
         $show = new Show(Category::findOrFail($id));
 
         $show->field('category_id', __('Category id'));
-        $show->field('name', __('Name'));
-        $show->field('description', __('Description'));
-        $show->field('image_url', __('Image url'));
+        $show->field('name', __('Nombre'));
+        $show->field('description', __('Descripción'));
+        $show->field('image_url', __('Imagen (URL)'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -65,9 +74,14 @@ class CategoryController extends AdminController
     {
         $form = new Form(new Category());
 
-        $form->text('name', __('Name'));
-        $form->textarea('description', __('Description'));
-        $form->text('image_url', __('Image url'));
+        $form->hidden('category_id');
+        $form->text('name', __('Nombre'))->placeholder('Nombre de la categoría')->required();
+        $form->textarea('description', __('Descripción'))->placeholder('Breve descripción');
+        $form->image('image_url', 'Imagen de la categoría')->placeholder('Seleccionar imagen');
+
+        $form->saving(function (Form $form) {
+            $form->category_id = Str::lower(str_replace(" ", "-", $form->name));
+        });
 
         return $form;
     }

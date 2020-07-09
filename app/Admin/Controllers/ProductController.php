@@ -31,10 +31,17 @@ class ProductController extends AdminController
         $grid->column('product_id', __('Product id'));
         $grid->column('name', __('Nombre'));
         $grid->column('description', __('Descripción'));
-        $grid->column('image_url', __('Image (URL)'));
+        $grid->column('image_url', __('Imagen (URL)'));
         $grid->column('price', __('Precio'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+
+        // The filter($callback) method is used to set up a simple search box for the table
+        $grid->filter(function ($filter) {
+
+            // Sets the range query for the created_at field
+            $filter->between('created_at', 'Created Time')->datetime();
+        });
 
         return $grid;
     }
@@ -52,7 +59,7 @@ class ProductController extends AdminController
         $show->field('product_id', __('Product id'));
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));
-        $show->field('image_url', __('Image url'));
+        $show->field('image_url', __('Imagen (URL)'));
         $show->field('price', __('Price'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -69,18 +76,15 @@ class ProductController extends AdminController
     {
         $form = new Form(new Product());
 
-        $form->text('product_id', __('Product id'));
-        $form->text('name', __('Name'));
-        $form->textarea('description', __('Description'));
-        // $form->text('image_url', __('Image url'));
-        $form->text('price', __('Price'));
+        $form->hidden('product_id');
+        $form->text('name', __('Nombre'))->placeholder('Nombre del producto')->required();
+        $form->textarea('description', __('Descripción'))->placeholder('Breve descripción')->required();
+        $form->currency('price', __('Precio'))->symbol('Gs.')->required();
 
-        $form->image('image_url', 'Image');
+        $form->image('image_url', 'Imagen del producto')->required();
 
         $form->saving(function (Form $form) {
-
             $form->product_id = Str::lower(str_replace(" ", "-", $form->name));
-        
         });
 
         return $form;

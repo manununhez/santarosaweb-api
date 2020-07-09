@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 use App\ItemCategory;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -33,12 +35,21 @@ class ItemCategoryController extends AdminController
         $grid->column('website', __('Página web'));
         $grid->column('phone', __('Teléfono'));
         $grid->column('image_url', __('Image (URL)'));
-        $grid->column('delivery_available', __('Delivery disponible (V/F)'));
+        $grid->column('delivery_available', __('Delivery disponible'))->display(function ($released) {
+            return $released ? 'Sí' : 'No';
+        });
         $grid->column('info_hours_id', __('Info hours id'));
         $grid->column('info_hours_opening', __('Horas de apertura'));
         $grid->column('info_hours_closing', __('Horas de cierre'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+
+        // The filter($callback) method is used to set up a simple search box for the table
+        $grid->filter(function ($filter) {
+
+            // Sets the range query for the created_at field
+            $filter->between('created_at', 'Created Time')->datetime();
+        });
 
         return $grid;
     }
@@ -54,16 +65,16 @@ class ItemCategoryController extends AdminController
         $show = new Show(ItemCategory::findOrFail($id));
 
         $show->field('item_category_id', __('Item category id'));
-        $show->field('name', __('Name'));
-        $show->field('description', __('Description'));
+        $show->field('name', __('Nombre'));
+        $show->field('description', __('Descripción'));
         $show->field('address_item_id', __('Address item id'));
         $show->field('website', __('Website'));
-        $show->field('phone', __('Phone'));
-        $show->field('image_url', __('Image url'));
-        $show->field('delivery_available', __('Delivery available'));
+        $show->field('phone', __('Teléfono móvil'));
+        $show->field('image_url', __('Imagen (URL)'));
+        $show->field('delivery_available', __('Delivery disponible'));
         $show->field('info_hours_id', __('Info hours id'));
-        $show->field('info_hours_opening', __('Info hours opening'));
-        $show->field('info_hours_closing', __('Info hours closing'));
+        $show->field('info_hours_opening', __('Horas de apertura'));
+        $show->field('info_hours_closing', __('Horas de cierre'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -79,16 +90,26 @@ class ItemCategoryController extends AdminController
     {
         $form = new Form(new ItemCategory());
 
-        $form->text('name', __('Name'));
-        $form->text('description', __('Description'));
-        $form->text('address_item_id', __('Address item id'));
-        $form->text('website', __('Website'));
-        $form->mobile('phone', __('Phone'));
-        $form->text('image_url', __('Image url'));
-        $form->switch('delivery_available', __('Delivery available'));
-        $form->text('info_hours_id', __('Info hours id'));
-        $form->text('info_hours_opening', __('Info hours opening'));
-        $form->text('info_hours_closing', __('Info hours closing'));
+        $form->hidden('item_category_id');
+        $form->text('name', __('Nombre'))->placeholder('Nombre de la subcategoría')->required();
+        $form->text('description', __('Descripción'))->placeholder('Breve descripción');
+        $form->text('address_item_id', __('Address item id'))->required();
+        $form->url('website', __('Website'));
+        $form->mobile('phone', __('Teléfono móvil'))->options(['mask' => '(9999) 999 999']);
+        $form->image('image_url', 'Imagen de la subcategoría')->placeholder('Seleccionar imagen');
+
+        $states = [
+            'on'  => ['value' => 1, 'text' => 'sí', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => 'no', 'color' => 'danger'],
+        ];
+        $form->switch('delivery_available', __('Delivery disponible'))->states($states);
+        $form->text('info_hours_id', __('Info hours id'))->required();
+        $form->text('info_hours_opening', __('Horario de apertura'))->required();
+        $form->text('info_hours_closing', __('Horario de cierre'))->required();
+
+        $form->saving(function (Form $form) {
+            $form->item_category_id = Str::lower(str_replace(" ", "-", $form->name));
+        });
 
         return $form;
     }

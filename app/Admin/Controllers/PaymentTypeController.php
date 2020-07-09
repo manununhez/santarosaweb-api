@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 use App\PaymentType;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -29,8 +31,15 @@ class PaymentTypeController extends AdminController
         $grid->column('payment_type_id', __('Payment type id'));
         $grid->column('name', __('Nombre'));
         $grid->column('description', __('Descripción'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+
+        // The filter($callback) method is used to set up a simple search box for the table
+        $grid->filter(function ($filter) {
+
+            // Sets the range query for the created_at field
+            $filter->between('created_at', 'Created Time')->datetime();
+        });
 
         return $grid;
     }
@@ -46,8 +55,8 @@ class PaymentTypeController extends AdminController
         $show = new Show(PaymentType::findOrFail($id));
 
         $show->field('payment_type_id', __('Payment type id'));
-        $show->field('name', __('Name'));
-        $show->field('description', __('Description'));
+        $show->field('name', __('Nombre'));
+        $show->field('description', __('Descripción'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -63,8 +72,13 @@ class PaymentTypeController extends AdminController
     {
         $form = new Form(new PaymentType());
 
-        $form->text('name', __('Name'));
-        $form->textarea('description', __('Description'));
+        $form->hidden('payment_type_id');
+        $form->text('name', __('Nombre'))->placeholder('Nombre')->required();
+        $form->textarea('description', __('Descripción'))->placeholder('Breve descripción');
+
+        $form->saving(function (Form $form) {
+            $form->payment_type_id = Str::lower(str_replace(" ", "-", $form->name));
+        });
 
         return $form;
     }
