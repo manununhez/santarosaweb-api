@@ -187,7 +187,7 @@
                   </div>
             
                   <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                    <img class=" " src="{{asset('upload/'+$section->image_url }}">
+                    <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
                   </div>
               </a>
               @endforeach
