@@ -8,20 +8,20 @@
     <meta name="santa rosa del aguaray" content="">
     <meta name="santa rosa online" content="">
 
-    <title>S.R.Online - Automoviles</title>
+    <title>Talleres</title>
      <!-- Favicons -->
-  <link href=" assets/img/favicon.png" rel="icon">
-  <link href=" assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"  >
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"  >
 
-  <link href="assets/icofont/icofont.min.css" rel="stylesheet">
+  <link href="{{asset('assets/icofont/icofont.min.css')}}" rel="stylesheet">
 
    
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.mCustomScrollbar.min.css')}}">
 
      <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -36,70 +36,27 @@
 
 <body>
 
-    <div class="container">
-      <div class=" container txt-cen">
-                                              <a href="inicio">
-                                            <img class=" fadeIn1 logo " src="assets/img/logo.png"></a>
-                                        </div>
-       
-                 <h2>Todo para tu automovil</h2>
+  <div class="container">
+       <div class=" container txt-cen">
+          <a href="inicio">
+            <img class=" fadeIn1 logo " src="{{asset('assets/img/logo.png')}}"></a>
+        </div>
+        <h2>{{ $section->name }}</h2>
 
-                    <a class="box_cate_interna   fadeIn2" href=""> 
-                        
-                          <h5>Playa de Auto</h5>
+        <a class="box_cate_interna   fadeIn2" href=" talleres_interna"> 
+              <h3>{{ $category->name }}</h5>
+        </a>
 
-                    </a>
-              
+        <a class="box_cate_interna   fadeIn2" href=" talleres_interna"> 
+              <h5>{{ $item->name }}</h5>
+        </a>
+  
 
-                    <a class="box_cate_interna   fadeIn2" href=""> 
-                        
-                        <h5>Lavadero</h5>
-                        
-                    </a>
-
-
-                    <a class="box_cate_interna   fadeIn2" href="talleres_sub_categoria"> 
-                         <h5>Taller</h5>
-
-                    </a>
-          
-
-                    <a class="box_cate_interna   fadeIn3" href=""> 
-                          <h5>Gasolina</h5>
-                        
-
-                    </a>
-                
-
-                    <a class="box_cate_interna   fadeIn3" href=""> 
-                          <h5>Gomeria</h5>
-                        
-                    </a>
-            
-
-                    <a class="  box_cate_interna   fadeIn3" href=""> 
-                         <h5>Repuestos</h5>
-                        
-                    </a>
-                            
-
-                    <a class="box_cate_interna   fadeIn4" href=""> 
-                          <h5> Baterias</h5>
-
-                         
-                    </a>
-              
-
-                    <a class="box_cate_interna   fadeIn4" href=""> 
-                          <h5>Lubricantes</h5>
-
-                        
-                    </a>
-
-
-                    
-           
-
+        @foreach ($products as $product)
+        <a class="box_cate_interna   fadeIn2" href="">         
+            <h5>{{ $product->name }}</h5> 
+        </a>
+        @endforeach
     </div>
 
     
@@ -107,11 +64,11 @@
     
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="assets/js/jquery-3.3.1.slim.min.js" ></script>
+    <script src="{{asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 

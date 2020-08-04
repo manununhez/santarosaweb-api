@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('sections', 'SectionsController@index');
 Route::get('sections/{section}', 'SectionsController@show');
 Route::post('sections','SectionsController@store');

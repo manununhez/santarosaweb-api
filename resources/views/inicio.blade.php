@@ -45,79 +45,17 @@
 
                 <div class="sidebar-header">
                    <a  href="index.html">
-                     <img class=" fadeIn1 logo m-top-20" src="assets/img/logo.png" >
+                     <img class=" fadeIn1 logo m-top-20" src="{{asset('assets/img/logo.png')}}" >
                     </a>
                     
                 </div>
 
                 <ul class="list-unstyled components">
-                   
-                    <li >
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">SUPERMERCADOS<b class="caret"></b></a>
-                        
-                    </li>
+                    @foreach ($sections as $section)
                     <li>
-                      <a href="#">Restaurantes</a>
-                      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Farmacias</a>
-                      <ul class="collapse list-unstyled" id="pageSubmenu">
-                          <li><a href="#">Page 1</a></li>
-                          <li><a href="#">Page 2</a></li>
-                          <li><a href="#">Page 3</a></li>
-                      </ul>
+                        <a href="#">{{ $section->name }}</a>
                     </li>
-                    <li>
-                        <a href="#">Despensas</a>
-                    </li>
-                    <li>
-                        <a href="#">Belleza</a>
-                    </li>
-
-                     <li>
-                        <a href="#">Ferreteria</a>
-                    </li>
-
-                     <li>
-                        <a href="#">Mascotas</a>
-                    </li>
-
-                     <li>
-                        <a href="categoria_automovil">automoviles</a>
-                    </li>
-
-                     <li>
-                        <a href="#">bebidas</a>
-                    </li>
-
-                     <li>
-                        <a href="#">Hoteles</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Alquileres</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Electrodomesticos</a>
-                    </li>
-
-                    <li>
-                        <a href="#">gimnasio</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Verduleria</a>
-                    </li>
-
-                    <li>
-                        <a href="#">facultades</a>
-                    </li>
-                    <li>
-                        <a href="#">IGLESIAS</a>
-                    </li>
-
-                    <li>
-                        <a href="#">moteles</a>
-                    </li>
+                    @endforeach
                 </ul>
 
         </nav>
@@ -150,7 +88,7 @@
 
                                         <div class="f-left">
                                               <a  href="index.html">
-                                            <img class=" fadeIn1 logo m-top-20" src="assets/img/logo.png" ></a>
+                                            <img class=" fadeIn1 logo m-top-20" src="{{asset('assets/img/logo.png')}}" ></a>
                                         </div>
                                     </div>
   
@@ -241,318 +179,19 @@
         </div>
 
         <div class="con tainer fadeIn3">
-       
-
-          <div id="myList" class="list-group "> 
-                 
-
-                    <a class="boxhover col-sm-2 fadeIn2" href="supermercados.html"> 
-                        <div class="text-white ">
-                          <h5>Supermercados</h5>
-                        </div>
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_1_ch.jpg">
-                        </div>
-
-                        <ul class="txt-escondio">
-                          <li>carniceria</li>
-                          <li>asado</li>
-                          <li></li>
-                          <li></li>
-                        </ul>
-
-                    </a>
-              
-
-                    <a class="boxhover col-sm-2 fadeIn2" href=""> 
-                        <div class="text-white  ">
-                          <h5>Restaurantes</h5>
-                        </div>
-                  
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_2_ch.jpg">
-                        </div>
-                    </a>
-
-
-                    <a class="boxhover col-sm-2 fadeIn2" href=""> 
-                        <div class=" text-white ">
-                          <h5>Farmacias</h5>
-                        </div>
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_3_ch.jpg">
-                        </div>
-                    </a>
-          
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5>Despensas</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_4_ch.jpg">
-                        </div>
-                    </a>
-                
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white  ">
-                          <h5>Belleza</h5>
-                        </div>
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_6_ch.jpg">
-                        </div>
-                    </a>
+          <div id="myList" class="list-group ">     
+              @foreach ($sections as $section)
+              <a class="boxhover col-sm-2 fadeIn2" href="{{route('categoriasXseccion', $section)}}"> 
+                  <div class="text-white  ">
+                    <h5>{{ $section->name }}</h5>
+                  </div>
             
-
-                    <a class="  boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5>Ferreteria</h5>
-                        </div>
-                  
-
-                        <div class="img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class="img- center" src="assets/img/logo_7_ch.jpg">
-                        </div>
-                    </a>
-                            
-
-                    <a class="boxhover col-sm-2 fadeIn4" href=""> 
-                        <div class="text-white ">
-                          <h5> Mascotas</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_5_ch.jpg">
-                        </div>
-                        <ul class="txt-escondio">
-                            <li>veterinaria</li>
-                            <li>purina</li>
-                            <li></li>
-                            <li></li>
-
-                          </ul>
-                    </a>
-              
-
-                    <a class="boxhover col-sm-2 fadeIn4" href="categoria_automovil"> 
-                        <div class="text-white  ">
-                          <h5>automoviles </h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_8_ch.jpg">
-                        </div>
-
-                        <ul class="txt-escondio">
-                            <li>talleres</li>
-                            <li>gasolina</li>
-                            <li>lubricantes</li>
-                            <li>gomeria</li>
-
-                          </ul>
-                    </a>
-
-
-                    <a class="boxhover col-sm-2 fadeIn4" href=""> 
-                        <div class=" text-white ">
-                          <h5>bebidas </h5>
-                        </div>
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_9_ch.jpg">
-                        </div>
-                    </a>
-          
-
-                    <a class="boxhover col-sm-2 fadeIn4" href=""> 
-                        <div class="text-white">
-                          <h5> Hoteles</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_10_ch.jpg">
-                        </div>
-                    </a>
-                
-
-                    <a class="boxhover col-sm-2 fadeIn4" href=""> 
-                        <div class="text-white  ">
-                          <h5> Alquileres</h5>
-                        </div>
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_11_ch.jpg">
-                        </div>
-                    </a>
-            
-
-                    <a class="boxhover col-sm-2 fadeIn4" href=""> 
-                        <div class="text-white">
-                          <h5>Electrodomesticos</h5>
-                        </div>
-                  
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_12_ch.jpg">
-                        </div>
-                    </a>
-              
-           
- 
-
-                    <a class="boxhover col-sm-2 fadeIn3" href="supermercados.html"> 
-                        <div class="text-white ">
-                          <h5> gimnasio</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_13_ch.jpg">
-                        </div>
-                    </a>
-              
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white  ">
-                          <h5>Verduleria </h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/logo_14_ch.jpg">
-                        </div>
-                    </a>
-
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class=" text-white ">
-                          <h5>facultades </h5>
-                        </div>
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img  class=" "src="assets/img/logo_15_ch.jpg">
-                        </div>
-                    </a>
-          
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5> BANCOS</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img  class=" " src="assets/img/logo_16_banco.jpg">
-                        </div>
-                    </a>
-                
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white  ">
-                          <h5> IGLESIAS</h5>
-                        </div>
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" "  src="assets/img/17_iglesia.jpg">
-                        </div>
-                    </a>
-            
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5>moteles</h5>
-                        </div>
-                  
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                           <img class=" "  src="assets/img/18_motel.jpg">
-                        </div>
-                    </a>
-              
-        
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=" "> 
-                        <div class="text-white ">
-                          <h5> MOTOCICLETAS</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                           <img class=" "  src="assets/img/moto.jpg">
-                           
-                        </div>
-                    </a>
-              
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white  ">
-                          <h5>PELUQUERIA </h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                           <img class=" "  src="assets/img/peluqueria.jpg">
-                           
-                        </div>
-                    </a>
-
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class=" text-white ">
-                          <h5>COMBUSTIBLE </h5>
-                        </div>
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/gasolina.jpg">
-                        </div>
-                    </a>
-          
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5> GANADERIA</h5>
-                        </div>
-                  
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/ganaderia-1.jpg ">
-                        </div>
-                    </a>
-                
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white  ">
-                          <h5> COMIDA RAPIDA</h5>
-                        </div>
-
-                        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/comidarapi.jpg ">
-                        </div>
-                    </a>
-            
-
-                    <a class="boxhover col-sm-2 fadeIn3" href=""> 
-                        <div class="text-white">
-                          <h5>ROPAS</h5>
-                        </div>
-                  
-
-                        <div class="   img-hover-zoom img-hover-zoom--basic text-center">
-                          <img class=" " src="assets/img/ropas.jpg ">
-                        </div>
-                    </a>
+                  <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                    <img class=" " src="assets/img/logo_2_ch.jpg">
+                  </div>
+              </a>
+              @endforeach
           </div>     
-    
-
         </div>
 
          
@@ -565,7 +204,7 @@
                 <div class="col-lg-3">
                     <div class="footer-logo-item">
                         <div class="f-logo">
-                            <a href="#"><img src="assets/img/logo.png" alt=""></a>
+                            <a href="#"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>
                         </div>
                         <p>Registra tu negocio en esta ciudad Online</p>
                         <div class="social-links">

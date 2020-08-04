@@ -13,22 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('inicio', function () {
-    return view('inicio');
-});
+// Route::get('/', function () {
+//     return view('inicio');
+// });
 
-Route::get('categoria_automovil', function () {
-    return view('categoria_automovil');
-});
+// Route::get('/', "Views\InicioController@index");
 
-Route::get('talleres_sub_categoria', function () {
-    return view('talleres_sub_categoria');
-});
+Route::get('/', "Views\InicioController@index");
 
-Route::get('talleres_interna', function () {
-    return view('talleres_interna');
-});
+Route::get('/section/{section}', "Views\CategoriaController@index")->name('categoriasXseccion');
+
+Route::get('/section/{section}/category/{category}', "Views\SubCategoriaController@index")->name('subCategoriasXcategoria');
+
+Route::get('/section/{section}/category/{category}/item/{item}', "Views\ProductosController@index")->name('productosXsubCategoria');
