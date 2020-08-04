@@ -42,15 +42,8 @@
             <img class=" fadeIn1 logo " src="{{asset('assets/img/logo.png')}}"></a>
         </div>
         <h2>{{ $section->name }}</h2>
-
-        <a class="box_cate_interna   fadeIn2" href=""> 
-              <h3>{{ $category->name }}</h5>
-        </a>
-
-        <a class="box_cate_interna   fadeIn2" href=""> 
-              <h5>{{ $item->name }}</h5>
-        </a>
-  
+        <h3>{{ $category->name }}</h5>
+        <h5>{{ $item->name }}</h5>
 
         @foreach ($products as $product)
         <a class="box_cate_interna   fadeIn2" href="">         
