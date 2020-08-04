@@ -10,7 +10,7 @@ use App\Category;
 use App\ItemCategory;
 use App\Product;
 
-class SubCategoriaController
+class ProductosController
 {
         public function index(Section $section, Category $category, ItemCategory $item) { 
                 $productsId = $item->products->pluck('product_id');
