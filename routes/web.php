@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('inicio', function () {
+    return view('inicio');
+});
+
+Route::get('categoria_automovil', function () {
+    return view('categoria_automovil');
+});
+
+Route::get('talleres_sub_categoria', function () {
+    return view('talleres_sub_categoria');
+});
+
+Route::get('talleres_interna', function () {
+    return view('talleres_interna');
+});
