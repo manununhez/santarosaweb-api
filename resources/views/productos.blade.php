@@ -43,11 +43,11 @@
         </div>
         <h2>{{ $section->name }}</h2>
 
-        <a class="box_cate_interna   fadeIn2" href=" talleres_interna"> 
+        <a class="box_cate_interna   fadeIn2" href=""> 
               <h3>{{ $category->name }}</h5>
         </a>
 
-        <a class="box_cate_interna   fadeIn2" href=" talleres_interna"> 
+        <a class="box_cate_interna   fadeIn2" href=""> 
               <h5>{{ $item->name }}</h5>
         </a>
   
