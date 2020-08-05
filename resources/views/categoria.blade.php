@@ -38,14 +38,19 @@
 
     <div class="container">
       <div class=" container txt-cen">
-          <a href="inicio">
+          <a href="../">
               <img class=" fadeIn1 logo " src="{{asset('assets/img/logo.png')}}"></a>
       </div>
        
       <h2>{{ $section->name }}</h2>
       @foreach ($categories as $category)
       <a class="box_cate_interna   fadeIn2" href="{{route('subCategoriasXcategoria', [$section, $category])}}">             
-        <h5>{{ $category->name }}</h5>
+         <div class="text-white-interna  ">
+            <h5>{{ $category->name }}</h5>
+          </div>
+        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                    <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
+                  </div>
       </a>
       @endforeach            
     </div>

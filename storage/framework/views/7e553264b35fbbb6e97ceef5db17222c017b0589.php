@@ -68,8 +68,6 @@
 
                 <!-- LOGO  -->
 
-               
-
                 <div class="col-sm-12"> 
 
                         <!-- MENU  -->
@@ -87,7 +85,7 @@
                                       </div>
 
                                         <div class="f-left">
-                                              <a  href="index.html">
+                                              <a  href="https://santarosadelaguaray.online/">
                                             <img class=" fadeIn1 logo m-top-20" src="<?php echo e(asset('assets/img/logo.png'), false); ?>" ></a>
                                         </div>
                                     </div>
@@ -193,18 +191,15 @@
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>     
         </div>
-
-         
-
-
     </div>
+    
 <footer class="footer-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="footer-logo-item">
                         <div class="f-logo">
-                            <a href="#"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
+                            <a href="https://santarosadelaguaray.online/"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
                         </div>
                         <p>Registra tu negocio en esta ciudad Online</p>
                         <div class="social-links">
