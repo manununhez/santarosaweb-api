@@ -44,14 +44,17 @@
        
       <h2><?php echo e($section->name, false); ?></h2>
       <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('subCategoriasXcategoria', [$section, $category]), false); ?>">             
-         <div class="text-white-interna  ">
-            <h5><?php echo e($category->name, false); ?></h5>
-          </div>
-        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                    <img class=" " src="<?php echo e(asset( 'uploads/'.$section->image_url ), false); ?>">
-                  </div>
-      </a>
+        <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('subCategoriasXcategoria', [$section, $category]), false); ?>">             
+              
+              <div class=" img-hover-zoom img-hover-zoom--basic text-center img_box_internas">
+                <img class=" " src="<?php echo e(asset( 'uploads/'.$category->image_url ), false); ?>">
+              </div>
+
+              <div class="text-white-interna  ">
+                  <h5><?php echo e($category->name, false); ?></h5>
+              </div>
+             
+        </a>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>            
     </div>
 

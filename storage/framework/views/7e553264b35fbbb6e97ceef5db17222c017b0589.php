@@ -184,7 +184,7 @@
                     <h5><?php echo e($section->name, false); ?></h5>
                   </div>
             
-                  <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                  <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
                     <img class=" " src="<?php echo e(asset( 'uploads/'.$section->image_url ), false); ?>">
                   </div>
               </a>

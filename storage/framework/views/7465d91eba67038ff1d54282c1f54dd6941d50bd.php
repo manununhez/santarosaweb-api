@@ -38,7 +38,7 @@
 
     <div class="container">
        <div class=" container txt-cen">
-          <a href="inicio">
+          <a href="https://santarosadelaguaray.online/">
             <img class=" fadeIn1 logo " src="<?php echo e(asset('assets/img/logo.png'), false); ?>"></a>
         </div>
         <h2><?php echo e($section->name, false); ?></h2>
@@ -48,7 +48,12 @@
 
         <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('productosXsubCategoria', [$section, $category, $item]), false); ?>">         
-            <h5><?php echo e($item->name, false); ?></h5> 
+          <div class="text-white-interna  ">
+              <h5><?php echo e($item->name, false); ?></h5>
+            </div>
+          <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+            <img class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url ), false); ?>">
+          </div>
         </a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>

@@ -3,6 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\ItemCategoryProduct;
+use App\ItemCategory;
+use App\Product;
+
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -63,8 +66,10 @@ class ItemCategoryProductController extends AdminController
     {
         $form = new Form(new ItemCategoryProduct());
 
-        $form->text('item_category_id', __('Item category id'));
-        $form->text('product_id', __('Product id'));
+        //$form->text('item_category_id', __('Item category id'));
+        //$form->text('product_id', __('Product id'));
+	$form->select('item_category_id', __('Seleccionar la subCategoria'))->options(ItemCategory::all()->pluck('name', 'item_category_id'));
+	$form->select('product_id', __('Seleccionar el producto'))->options(Product::all()->pluck('name', 'product_id'));
 
         return $form;
     }

@@ -38,7 +38,7 @@
 
   <div class="container">
        <div class=" container txt-cen">
-          <a href="inicio">
+          <a href="https://santarosadelaguaray.online/">
             <img class=" fadeIn1 logo " src="{{asset('assets/img/logo.png')}}"></a>
         </div>
         <h2>{{ $section->name }}</h2>
@@ -46,14 +46,17 @@
         <h5>{{ $item->name }}</h5>
 
         @foreach ($products as $product)
-        <a class="box_cate_interna   fadeIn2" href="">         
-          <div class="text-white-interna  ">
-              <h5>{{ $product->name }}</h5>
+          <a class="box_cate_interna   fadeIn2" href="">         
+            
+            <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+              <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
             </div>
-          <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-            <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
-          </div>
-        </a>
+
+            <div class="text-white-interna  ">
+                <h5>{{ $product->name }}</h5>
+            </div>
+            
+          </a>
         @endforeach
     </div>
 

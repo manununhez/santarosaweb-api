@@ -184,7 +184,7 @@
                     <h5>{{ $section->name }}</h5>
                   </div>
             
-                  <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                  <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
                     <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
                   </div>
               </a>

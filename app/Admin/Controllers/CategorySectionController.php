@@ -8,6 +8,9 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+use App\Category;
+use App\Section;
+
 class CategorySectionController extends AdminController
 {
     /**
@@ -63,9 +66,12 @@ class CategorySectionController extends AdminController
     {
         $form = new Form(new CategorySection());
 
-        $form->text('section_id', __('Section id'));
-        $form->text('category_id', __('Category id'));
-
-        return $form;
+        //$form->text('section_id', __('Section id'));
+        //$form->text('category_id', __('Category id'));
+	
+	$form->select('section_id',__('Seleccionar la seccion'))->options(Section::all()->pluck('name', 'section_id'));
+	$form->select('category_id', __('Seleccionar la categoria'))->options(Category::all()->pluck('name', 'category_id'));	
+	
+	return $form;
     }
 }

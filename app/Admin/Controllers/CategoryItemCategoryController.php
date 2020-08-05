@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\CategoryItemCategory;
 use App\Category;
+use App\ItemCategory;
 
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -54,7 +55,7 @@ class CategoryItemCategoryController extends AdminController
         $show->field('updated_at', __('Updated at'));
 
         return $show;
-    }
+	}
 
     /**
      * Make a form builder.
@@ -65,11 +66,11 @@ class CategoryItemCategoryController extends AdminController
     {
         $form = new Form(new CategoryItemCategory());
 
-        $form->text('category_id', __('Category id'));
-        $form->text('item_category_id', __('Item category id'));
+        //$form->text('category_id', __('Category id'));
+        //$form->text('item_category_id', __('Item category id'));
 
-        $form->select('category_id')->options(Category::all()->pluck('name', 'id'));
-
+        $form->select('category_id', __('Seleccionar la categoria'))->options(Category::all()->pluck('name', 'category_id'));
+	$form->select('item_category_id', __('Seleccionar la subCtegoria'))->options(ItemCategory::all()->pluck('name', 'item_category_id'));
         return $form;
     }
 }

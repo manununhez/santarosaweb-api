@@ -44,14 +44,17 @@
        
       <h2>{{ $section->name }}</h2>
       @foreach ($categories as $category)
-      <a class="box_cate_interna   fadeIn2" href="{{route('subCategoriasXcategoria', [$section, $category])}}">             
-         <div class="text-white-interna  ">
-            <h5>{{ $category->name }}</h5>
-          </div>
-        <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-          <img class=" " src="{{asset( 'uploads/'.$category->image_url ) }}">
-        </div>
-      </a>
+        <a class="box_cate_interna   fadeIn2" href="{{route('subCategoriasXcategoria', [$section, $category])}}">             
+              
+              <div class=" img-hover-zoom img-hover-zoom--basic text-center img_box_internas">
+                <img class=" " src="{{asset( 'uploads/'.$category->image_url ) }}">
+              </div>
+
+              <div class="text-white-interna  ">
+                  <h5>{{ $category->name }}</h5>
+              </div>
+             
+        </a>
       @endforeach            
     </div>
 
