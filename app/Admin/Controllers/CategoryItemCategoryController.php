@@ -66,6 +66,14 @@ class CategoryItemCategoryController extends AdminController
         $form->text('category_id', __('Category id'));
         $form->text('item_category_id', __('Item category id'));
 
+        $form->select('category_id')->options(function ($id) {
+            $user = Category::find($id);
+        
+            if ($user) {
+                return [$user->id => $user->name];
+            }
+        })->ajax('/admin/categories');
+
         return $form;
     }
 }
