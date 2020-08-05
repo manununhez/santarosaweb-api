@@ -47,7 +47,12 @@
 
         @foreach ($products as $product)
         <a class="box_cate_interna   fadeIn2" href="">         
-            <h5>{{ $product->name }}</h5> 
+          <div class="text-white-interna  ">
+              <h5>{{ $product->name }}</h5>
+            </div>
+          <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+            <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
+          </div>
         </a>
         @endforeach
     </div>

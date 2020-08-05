@@ -49,8 +49,8 @@
             <h5>{{ $category->name }}</h5>
           </div>
         <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                    <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
-                  </div>
+          <img class=" " src="{{asset( 'uploads/'.$category->image_url ) }}">
+        </div>
       </a>
       @endforeach            
     </div>
