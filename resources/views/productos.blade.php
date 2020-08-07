@@ -57,6 +57,8 @@
                 <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
               </div>
 
+              
+
             <div class="text-white-interna  ">
                 <h5>{{ $product->name }}</h5>
                 <h5>Precio: {{ $product->price }}</h5>
