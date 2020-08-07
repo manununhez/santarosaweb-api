@@ -43,8 +43,6 @@
         </div>  
         <h5>{{ $section->name }} / {{ $category->name }} / {{ $item->name }}</h5>
 
-        item_category_id', 'name','description','address_item_id','website','phone','image_url',
-        'delivery_available','info_hours_id','info_hours_opening','info_hours_closing
         <br>{{ $item->name }}</br>
         <br>{{ $item->description }}</br>
         <br>Web: {{ $item->website }}</br>
