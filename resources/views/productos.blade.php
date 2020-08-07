@@ -43,9 +43,18 @@
         </div>  
         <h5>{{ $section->name }} / {{ $category->name }} / {{ $item->name }}</h5>
 
-        @foreach ($products as $product)
-          <div class="  fadeIn2" href="">         
+        item_category_id', 'name','description','address_item_id','website','phone','image_url',
+        'delivery_available','info_hours_id','info_hours_opening','info_hours_closing
+        <br>{{ $item->name }}</br>
+        <br>{{ $item->description }}</br>
+        <br>Web: {{ $item->website }}</br>
+        <br>Telefono: {{ $item->phone }}</br>
+        <br>Delivery disponible: {{ $item->delivery_available }}</br>
+        <br>Horario apertura: {{ $item->info_hours_opening }}</br>
+        <br>Horario cierrre: {{ $item->info_hours_closing }}</br>
 
+        @foreach ($products as $product)
+        <a class="box_cate_interna   fadeIn2" href="">         
             <div class="text-white-interna  ">
                 <h5>{{ $product->name }}</h5>
             </div>
@@ -61,7 +70,7 @@
             <div class="text-white-interna  ">
                 <h6>{{ $product->description }}</h5>
             </div>            
-          </div>
+        </a>
         @endforeach
     </div>
 
