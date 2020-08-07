@@ -45,15 +45,22 @@
 
         @foreach ($products as $product)
           <div class="  fadeIn2" href="">         
-            
+
+            <div class="text-white-interna  ">
+                <h5>{{ $product->name }}</h5>
+            </div>
+
             <div class=" col-sm-2  ">
               <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
             </div>
 
             <div class="text-white-interna  ">
-                <h5>{{ $product->name }}</h5>
+                <h5>Precio: {{ $product->price }}</h5>
             </div>
-            
+
+            <div class="text-white-interna  ">
+                <h6>{{ $product->description }}</h5>
+            </div>            
           </div>
         @endforeach
     </div>
