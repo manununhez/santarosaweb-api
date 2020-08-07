@@ -47,25 +47,19 @@
         <br>{{ $item->description }}</br>
         <br>Web: {{ $item->website }}</br>
         <br>Telefono: {{ $item->phone }}</br>
-        <br>Delivery disponible: {{ $item->delivery_available }}</br>
+        <br>Delivery disponible: {{ $item->delivery_available == 0 ? "No" : "Sí" }}</br>
         <br>Horario apertura: {{ $item->info_hours_opening }}</br>
         <br>Horario cierrre: {{ $item->info_hours_closing }}</br>
 
         @foreach ($products as $product)
         <a class="box_cate_interna   fadeIn2" href="">         
+            <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
+              </div>
+
             <div class="text-white-interna  ">
                 <h5>{{ $product->name }}</h5>
-            </div>
-
-            <div class=" col-sm-2  ">
-              <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
-            </div>
-
-            <div class="text-white-interna  ">
                 <h5>Precio: {{ $product->price }}</h5>
-            </div>
-
-            <div class="text-white-interna  ">
                 <h6>{{ $product->description }}</h5>
             </div>            
         </a>
