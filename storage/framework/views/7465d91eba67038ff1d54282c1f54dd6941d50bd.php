@@ -47,14 +47,17 @@
   
 
         <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('productosXsubCategoria', [$section, $category, $item]), false); ?>">         
-          <div class="text-white-interna  ">
-              <h5><?php echo e($item->name, false); ?></h5>
-            </div>
-          <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-            <img class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url ), false); ?>">
-          </div>
-        </a>
+            <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('productosXsubCategoria', [$section, $category, $item]), false); ?>">         
+            
+              <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+                <img class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url ), false); ?>">
+              </div>
+              
+              <div class="text-white-interna  ">
+                  <h5><?php echo e($item->name, false); ?></h5>
+                </div>
+            
+            </a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 

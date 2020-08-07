@@ -37,18 +37,16 @@
 <body>
 
   <div class="container">
-       <div class=" container txt-cen">
+      <div class=" container txt-cen">
           <a href="https://santarosadelaguaray.online/">
             <img class=" fadeIn1 logo " src="{{asset('assets/img/logo.png')}}"></a>
-        </div>
-        <h2>{{ $section->name }}</h2>
-        <h3>{{ $category->name }}</h5>
-        <h5>{{ $item->name }}</h5>
+        </div>  
+        <h5>{{ $section->name }} / {{ $category->name }} / {{ $item->name }}</h5>
 
         @foreach ($products as $product)
-          <a class="box_cate_interna   fadeIn2" href="">         
+          <div class="  fadeIn2" href="">         
             
-            <div class=" img-hover-zoom img-hover-zoom--basic text-center">
+            <div class=" col-sm-2  ">
               <img class=" " src="{{asset( 'uploads/'.$product->image_url ) }}">
             </div>
 
@@ -56,11 +54,96 @@
                 <h5>{{ $product->name }}</h5>
             </div>
             
-          </a>
+          </div>
         @endforeach
     </div>
 
-    
+ <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-logo-item">
+                        <div class="f-logo">
+                            <a href="https://santarosadelaguaray.online/"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>
+                        </div>
+                        <p>Registra tu negocio en esta ciudad Online</p>
+                        <div class="social-links">
+                            <h6>Seguinos</h6>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+          <!-- <div class="col-lg-3 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Our Blog</h5>
+                        <div class="footer-blog">
+                            <a href="#" class="fb-item">
+                                <h6>Most people who work</h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                            <a href="#" class="fb-item">
+                                <h6>Freelance Design Tricks How </h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                            <a href="#" class="fb-item">
+                                <h6>have a computer at home have had </h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <h5>Categorias</h5>
+                        <ul class="workout-program">
+                            <li><a href="#">Talleres</a></li>
+                            <li><a href="#">Supermercados</a></li>
+                            <li><a href="#">Peluquerias</a></li>
+                            <li><a href="#">Bancos</a></li>
+                            <li><a href="#">Hoteles</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h5>Información</h5>
+                        <ul class="footer-info">
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <span>Teléfono</span>
+                                +595981 102 724
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o"></i>
+                                <span>Email:</span>
+                                hola@santarosadelaguaray.online
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <span>direccíon</span>
+                                Stella Marys,ruta11 km 224, Santa Rosa Del Aguaray
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="ct-inside"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright ©<script>document.write(new Date().getFullYear());</script>2020 Todos los derechos Reservados |  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://pauldefault.com" target="_blank">PaulDefault</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     
 
