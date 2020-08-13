@@ -50,7 +50,7 @@
             <a class="box_cate_interna   fadeIn2" href="{{route('productosXsubCategoria', [$section, $category, $item])}}">         
             
               <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                <img class=" " src="{{asset( 'uploads/'.$item->image_url ) }}">
+                <img class=" " src="{{asset( 'uploads/'.$item->image_url_icon ) }}">
               </div>
               
               <div class="text-white-interna  ">
