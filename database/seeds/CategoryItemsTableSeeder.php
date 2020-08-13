@@ -22,6 +22,7 @@ class CategoryItemsTableSeeder extends Seeder
                 'description' => $faker->paragraph,
                 'address_item_id' => $faker->randomNumber(2),
                 'website' => $faker->url,
+                'email' => $faker->email,
                 'phone' => $faker->randomNumber(5),
                 'image_url' => $faker->url,
                 'delivery_available' => $faker->boolean(50),

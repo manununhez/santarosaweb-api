@@ -49,6 +49,7 @@ class ItemsCategoryController extends BaseController
             'coordinate_latitude' => 'required|string',
             'coordinate_longitude' => 'required|string',
             'website' => 'string',
+            'email' => 'string',
             'phone' => 'string',
             'delivery_available' => 'boolean',
             //info hours
@@ -77,6 +78,7 @@ class ItemsCategoryController extends BaseController
                 'coordinate_latitude' => $input['coordinate_latitude'],
                 'coordinate_longitude' => $input['coordinate_longitude'],
                 'website' => isset($input['website']) ? $input['website'] : null,
+                'email' => isset($input['email']) ? $input['email'] : null,
                 'phone' => isset($input['phone']) ? $input['phone'] : null,
                 'image_url' => isset($input['image_url']) ? $input['image_url'] : null,
                 'delivery_available' => $input['delivery_available'],

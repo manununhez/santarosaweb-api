@@ -42,6 +42,7 @@ class ItemCategoryController extends AdminController
         $grid->column('coordinate_latitude', __('Coordenada - latitud'));
         $grid->column('coordinate_longitude', __('Coordenada - longitud'));
         $grid->column('website', __('Página web'));
+        $grid->column('email', __('Email'));
         $grid->column('phone', __('Teléfono'));
         $grid->column('image_url', __('Image (URL)'));
         $grid->column('image_url_2', __('Imagen 2 (URL)'));
@@ -87,6 +88,7 @@ class ItemCategoryController extends AdminController
         $show->field('coordinate_latitude', __('Coordenada - latitud'));
         $show->field('coordinate_longitude', __('Coordenada - longitud'));
         $show->field('website', __('Website'));
+        $show->field('email', __('Email'));
         $show->field('phone', __('Teléfono móvil'));
         $show->field('image_url', __('Imagen (URL)'));
         $show->field('image_url_2', __('Imagen 2 (URL)'));
@@ -122,6 +124,7 @@ class ItemCategoryController extends AdminController
         $form->text('coordinate_latitude', __('Coordenada - latitud'))->required();
         $form->text('coordinate_longitude', __('Coordenada - longitud'))->required();
         $form->url('website', __('Website'));
+        $form->text('email', __('Email'));
         $form->mobile('phone', __('Teléfono móvil'))->options(['mask' => '(9999) 999 999']);
         $form->image('image_url', 'Imagen de la subcategoría')->placeholder('Seleccionar imagen');
         $form->image('image_url_2', 'Imagen de la subcategoría #2')->placeholder('Seleccionar imagen');

@@ -14,5 +14,7 @@ class Product extends Model
     // If you wish to use a non-incrementing or a non-numeric primary key you must set the public $incrementing property on your model to false
     public $incrementing = false;
 
-    protected $fillable = ['product_id', 'name', 'description', 'image_url', 'price'];
+    protected $fillable = [
+        'product_id', 'name', 'description', 'tag', 'image_url', 'image_url_2', 'image_url_3', 'price'
+    ];
 }
