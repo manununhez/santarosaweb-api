@@ -63,8 +63,11 @@ class ItemPaymentTypeController extends AdminController
     {
         $form = new Form(new ItemPaymentType());
 
-        $form->text('item_category_id', __('Item category id'));
-        $form->text('payment_type_id', __('Payment type id'));
+        // $form->text('item_category_id', __('Item category id'));
+        // $form->text('payment_type_id', __('Payment type id'));
+
+        $form->select('item_category_id',__('Seleccionar la seccion'))->options(ItemCategory::all()->pluck('name', 'item_category_id'));
+        $form->select('payment_type_id', __('Seleccionar la categoria'))->options(PaymentType::all()->pluck('name', 'payment_type_id'));
 
         return $form;
     }

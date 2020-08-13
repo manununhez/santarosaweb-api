@@ -66,11 +66,8 @@ class CategoryItemCategoryController extends AdminController
     {
         $form = new Form(new CategoryItemCategory());
 
-        //$form->text('category_id', __('Category id'));
-        //$form->text('item_category_id', __('Item category id'));
-
         $form->select('category_id', __('Seleccionar la categoria'))->options(Category::all()->pluck('name', 'category_id'));
-	$form->select('item_category_id', __('Seleccionar la subCtegoria'))->options(ItemCategory::all()->pluck('name', 'item_category_id'));
+	    $form->select('item_category_id', __('Seleccionar la subCtegoria'))->options(ItemCategory::all()->pluck('name', 'item_category_id'));
         return $form;
     }
 }

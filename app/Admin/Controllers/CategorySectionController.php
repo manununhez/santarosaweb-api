@@ -65,12 +65,9 @@ class CategorySectionController extends AdminController
     protected function form()
     {
         $form = new Form(new CategorySection());
-
-        //$form->text('section_id', __('Section id'));
-        //$form->text('category_id', __('Category id'));
 	
-	$form->select('section_id',__('Seleccionar la seccion'))->options(Section::all()->pluck('name', 'section_id'));
-	$form->select('category_id', __('Seleccionar la categoria'))->options(Category::all()->pluck('name', 'category_id'));	
+        $form->select('section_id',__('Seleccionar la seccion'))->options(Section::all()->pluck('name', 'section_id'));
+        $form->select('category_id', __('Seleccionar la categoria'))->options(Category::all()->pluck('name', 'category_id'));	
 	
 	return $form;
     }
