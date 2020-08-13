@@ -85,7 +85,7 @@ class ProductController extends AdminController
         $form->hidden('product_id');
         $form->text('name', __('Nombre'))->placeholder('Nombre del producto')->required();
         $form->textarea('description', __('Descripción'))->placeholder('Breve descripción')->required();
-        $grid->field('tag', __('Tag'))->placeholder('Tag del producto');
+        $grid->text('tag', __('Tag'))->placeholder('Tag del producto');
         $form->currency('price', __('Precio'))->symbol('Gs.')->required();
 
         $form->image('image_url', 'Imagen del producto')->placeholder('Seleccionar imagen')->required();
