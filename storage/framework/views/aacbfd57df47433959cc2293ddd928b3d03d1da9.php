@@ -8,7 +8,7 @@
     <meta name="santa rosa del aguaray" content="">
     <meta name="santa rosa online" content="">
 
-    <title>S.R.Online - Automoviles</title>
+    <title>S.R.Online -  <?php echo e($section->name, false); ?></title>
      <!-- Favicons -->
   <link href="<?php echo e(asset('assets/img/favicon.png'), false); ?>" rel="icon">
   <link href="<?php echo e(asset('assets/img/apple-touch-icon.png'), false); ?>" rel="apple-touch-icon">

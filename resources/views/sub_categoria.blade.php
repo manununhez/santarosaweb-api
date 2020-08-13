@@ -8,7 +8,7 @@
     <meta name="santa rosa del aguaray" content="">
     <meta name="santa rosa online" content="">
 
-    <title>Talleres</title>
+    <title>{{ $category->name }}</title>
      <!-- Favicons -->
   <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
   <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">

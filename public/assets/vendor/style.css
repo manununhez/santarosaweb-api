@@ -1554,3 +1554,49 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+
+ .btn-menu, .btn-book {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 0 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  color:#5f5950;
+  border: 2px solid #ffb03b;
+}
+
+  .btn-menu:hover, .btn-book:hover {
+  background: #ffb03b;
+  color: #fff;
+}
+ 
+
+ .btn-whatsapp {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 0 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  color:#5f5950;
+  border: 2px solid green;
+}
+
+  .btn-whatsapp:hover {
+  background: green;
+  color: #fff;
+}
