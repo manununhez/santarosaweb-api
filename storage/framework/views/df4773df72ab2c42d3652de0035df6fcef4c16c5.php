@@ -8,7 +8,7 @@
     <meta name="santa rosa del aguaray" content="">
     <meta name="santa rosa online" content="">
 
-    <title>Talleres</title>
+    <title><?php echo e($item->name, false); ?></title>
      <!-- Favicons -->
   <link href="<?php echo e(asset('assets/img/favicon.png'), false); ?>" rel="icon">
   <link href="<?php echo e(asset('assets/img/apple-touch-icon.png'), false); ?>" rel="apple-touch-icon">
@@ -16,145 +16,376 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css'), false); ?>"  >
+    <link href="<?php echo e(asset('assets/icofont/icofont.min.css'), false); ?>" rel="stylesheet">
 
-  <link href="<?php echo e(asset('assets/icofont/icofont.min.css'), false); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/boxicons/css/boxicons.min.css'), false); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/animate.css/animate.min.css'), false); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/venobox/venobox.css'), false); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css'), false); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/style.css'), false); ?>">
 
-   
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/jquery.mCustomScrollbar.min.css'), false); ?>">
-
-     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-
+  
      <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
 
 </head>
 
-<body>
+<body> 
+        
+<div class="container">
 
-  <div class="container">
-      <div class=" container txt-cen">
-          <a href="https://santarosadelaguaray.online/">
-            <img class=" fadeIn1 logo " src="<?php echo e(asset('assets/img/logo.png'), false); ?>"></a>
-        </div>  
-        <h5><?php echo e($section->name, false); ?> / <?php echo e($category->name, false); ?> / <?php echo e($item->name, false); ?></h5>
 
-        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="  fadeIn2" href="">         
-            
-            <div class=" col-sm-2  ">
-              <img class=" " src="<?php echo e(asset( 'uploads/'.$product->image_url ), false); ?>">
+
+  <h5><?php echo e($section->name, false); ?> / <?php echo e($category->name, false); ?> / <?php echo e($item->name, false); ?></h5>
+</div>
+ 
+ <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container text-right">
+      <i class="icofont-phone"></i> +595991 748 631
+      <i class="icofont-clock-time icofont-rotate-180"></i> lunes - Sabados: 08:00 AM - 00:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+          <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         
+                <a href="#header"> <img  class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url ), false); ?>"></a>
+                        
+           </a>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">inicio</a></li>
+         
+          <li><a href="#menu">Menu</a></li>
+          
+           
+          <li><a href="#contact">Nosotros</a></li>
+
+          <li class="book-a-table text-center"><a href="#book-a-table">Contactar</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+
+          <div class="carousel-item active" style="background: url(  <?php echo e(asset('assets/vendor/img/slide/slide-1.jpg'), false); ?>);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animated fadeInDown"><span>Son Más Que Un </span> Antojo Todo Casero</h2>
+                <p class="animated fadeInUp">Estamos sobre la ruta 11 Juana Maria de Lara, frente mismo al Hotel Brayan Nicolas!
+                  Delivery 0991748631</p>
+                <div>
+                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Nuestro menú</a>
+                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Reservar</a>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div class="text-white-interna  ">
-                <h5><?php echo e($product->name, false); ?></h5>
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background: url( <?php echo e(asset('assets/vendor/img/slide/slide-2.jpg'), false); ?>);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animated fadeInDown"><span>Veni a disfrutar </span> de ese antojo que no te deja vivir!!</h2>
+                <p class="animated fadeInUp">Las mejores pizzas de Santa Rosa Del Aguaray</p>
+                <div>
+                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Pizza</a>
+                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Hacer pedido</a>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background: url( <?php echo e(asset('assets/vendor/img/slide/slide-3.jpg'), false); ?>);">
             
+
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animated fadeInDown"><span>Buffet </span> todos los días </h2>
+                <p class="animated fadeInUp">Ruta 11 juana maria de lara frente al hotel brayan nicolas. Delivery 099174863</p>
+                <div>
+                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Buffet</a>
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+    <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Mira nuestro sabroso <span>Menú</span></h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters">
+              <li data-filter="*" class="filter-active">Mostrar todo</li>
+              <li data-filter=".filter-starters">Entrantes</li>
+              <li data-filter=".filter-salads">Comida Rapida</li>
+              <li data-filter=".filter-specialty">Pizzas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row menu-container">
+
+                   
+              
+       <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <div class="col-lg-3 menu-item filter-specialty">
+             <a href="<?php echo e(asset( 'uploads/'.$product->image_url ), false); ?>" class="venobox" data-gall="gallery-item">
+                        <img src="<?php echo e(asset( 'uploads/'.$product->image_url ), false); ?>" alt="" class="img-fluid">
+                      </a>
+            <div class="menu-content">
+              <a href="#"><?php echo e($product->name, false); ?></a><span>Precio: <?php echo e($product->price, false); ?></span>
+            </div>
+            <div class="menu-ingredients">
+              <?php echo e($product->description, false); ?>
+
+            </div>
           </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </div>
+          <div class="col-lg-3 menu-item filter-specialty">
+            <div class="menu-content">
+              <a href="#">Bread barrel</a><span>$6.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
 
- <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-logo-item">
-                        <div class="f-logo">
-                            <a href="https://santarosadelaguaray.online/"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
-                        </div>
-                        <p>Registra tu negocio en esta ciudad Online</p>
-                        <div class="social-links">
-                            <h6>Seguinos</h6>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-          <!-- <div class="col-lg-3 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Our Blog</h5>
-                        <div class="footer-blog">
-                            <a href="#" class="fb-item">
-                                <h6>Most people who work</h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                            <a href="#" class="fb-item">
-                                <h6>Freelance Design Tricks How </h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                            <a href="#" class="fb-item">
-                                <h6>have a computer at home have had </h6>
-                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>-->
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h5>Categorias</h5>
-                        <ul class="workout-program">
-                            <li><a href="#">Talleres</a></li>
-                            <li><a href="#">Supermercados</a></li>
-                            <li><a href="#">Peluquerias</a></li>
-                            <li><a href="#">Bancos</a></li>
-                            <li><a href="#">Hoteles</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h5>Información</h5>
-                        <ul class="footer-info">
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <span>Teléfono</span>
-                                +595981 102 724
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o"></i>
-                                <span>Email:</span>
-                                hola@santarosadelaguaray.online
-                            </li>
-                            <li>
-                                <i class="fa fa-map-marker"></i>
-                                <span>direccíon</span>
-                                Stella Marys,ruta11 km 224, Santa Rosa Del Aguaray
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="col-lg-3 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Crab Cake</a><span>$7.95</span>
             </div>
-        </div>
-        <div class="copyright-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="ct-inside"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright ©<script>document.write(new Date().getFullYear());</script>2020 Todos los derechos Reservados |  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://pauldefault.com" target="_blank">PaulDefault</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
-                    </div>
-                </div>
+            <div class="menu-ingredients">
+              A delicate crab cake served on a toasted roll with lettuce and tartar sauce
             </div>
+          </div>
+
+          <div class="col-lg-3 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Caesar Selections</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-3 menu-item filter-specialty">
+            <div class="menu-content">
+              <a href="#">Tuscan Grilled</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+            </div>
+          </div>
+
+          <div class="col-lg-3 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Mozzarella Stick</a><span>$4.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-3 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Greek Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach, crisp romaine, tomatoes, and Greek olives
+            </div>
+          </div>
+
+          <div class="col-lg-3 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Spinach Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+            </div>
+          </div>
+
+           
+
         </div>
-    </footer>
+
+      </div>
+    </section><!-- End Menu Section -->
+
+ 
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Ponete en contacto con  <span>Nosotros</span></h2>
+          <p>Para cualquier consulta, o sugerencia</p>
+        </div>
+           
+            <div class=" text-center">
+            
+
+              <a class="btn-whatsapp animated fadeIn scrollto" href="https://api.whatsapp.com/send?phone=5959991748631&amp;text=SR.Online: " target="_blank"><span class="fa fa-whatsapp"></span>whatsapp</a>
+              
+              <a href="tel:+595991 748 631" class="btn-menu animated fadeIn scrollto"><i class="icofont-phone"></i>Llamar</a>
+            </div>
+        
+
+      </div>
+    </section><!-- End Book A Table Section -->
+
+
+
+ 
+
+ 
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><span>Contacte con</span> Nosotros</h2>
+          <p><?php echo e($item->description, false); ?></p>
+        </div>
+      </div>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14599.028131037!2d-56.5231846!3d-23.8272374!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9aace72f349dc442!2sSon%20M%C3%A1s%20que%20un%20Antojo%20TODO%20CASERO!5e0!3m2!1ses!2spy!4v1588984303086!5m2!1ses!2spy" style="border:0; width: 100%; height: 350px;" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+       
+      </div>
+
+      <div class="container mt-5">
+
+        <div class="info-wrap">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 info">
+              <i class="icofont-google-map"></i>
+              <h4>Ubicación:</h4>
+
+              <p><?php echo e($item->address_item_id, false); ?></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="icofont-clock-time icofont-rotate-90"></i>
+              <h4>Horarios:</h4>
+              <p>Lunes-Sábados:<br>
+                Horario apertura: <?php echo e($item->info_hours_opening, false); ?><br>
+                 Horario cierre: <?php echo e($item->info_hours_closing, false); ?></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>sonmasqueunantojo@gmail.com</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="icofont-phone"></i>
+              <h4>Llamada</h4>
+              <p>Telefono: <?php echo e($item->phone, false); ?></p>
+            </div>
+          </div>
+        </div>
+
+         
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Todo Casero <br><span>Mas que un Antojo</span></h3>
+      <p> <?php echo e($item->description, false); ?></p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mas que un Antojo</span></strong>. Todos los derechos reservados
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        Diseñado por <a href="https://bootstrapmade.com/">PaulDefault.com</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
 
     
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="<?php echo e(asset('assets/js/jquery-3.3.1.slim.min.js'), false); ?>" ></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="<?php echo e(asset('assets/js/bootstrap.min.js'), false); ?>"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <script src="<?php echo e(asset('assets/vendor/jquery/jquery.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/js/bootstrap.bundle.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/jquery.easing/jquery.easing.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/php-email-form/validate.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/jquery-sticky/jquery.sticky.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/isotope-layout/isotope.pkgd.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/venobox/venobox.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/owl.carousel/owl.carousel.min.js'), false); ?>" ></script>
+    <script src="<?php echo e(asset('assets/vendor/main.js'), false); ?>" ></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -176,34 +407,10 @@ Copyright ©<script>document.write(new Date().getFullYear());</script>2020 Todos
         });
     </script>
 
-    <script>
-$(document).ready(function(){
-  $("#myInput").keyup(function() {
-    let value = $(this).val().toLowerCase();
-    $("#myList a").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-    });
-  });
-});
-</script>
+      
+     
 
-<script>
-$(document).ready(function () {
-
-  $('.first-button').on('click', function () {
-
-    $('.animated-icon1').toggleClass('open');
-  });
-  $('.second-button').on('click', function () {
-
-    $('.animated-icon2').toggleClass('open');
-  });
-  $('.third-button').on('click', function () {
-
-    $('.animated-icon3').toggleClass('open');
-  });
-});
-</script>
+        
 </body>
 
 </html>
