@@ -54,8 +54,8 @@ Route::delete('products/{product}', 'ProductsController@delete');
 Route::get('search', function (Request $request) {
     $searchTerm = $request->q;
     
-    $products = App\Product::query()
-                ->select('product_id', 'name', 'price', 'image_url')
+    $sections = App\Section::query()
+                ->select('section_id', 'name', 'image_url')
                 ->where('name', 'LIKE', "%{$searchTerm}%") 
                 ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
                 ->get();
@@ -66,14 +66,14 @@ Route::get('search', function (Request $request) {
                 ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
                 ->get();
     
-    $sections = App\Section::query()
-                ->select('section_id', 'name', 'image_url')
+    $items = App\ItemCategory::query()
+                ->select('item_category_id', 'name', 'image_url')
                 ->where('name', 'LIKE', "%{$searchTerm}%") 
                 ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
                 ->get();
-    
-    $items = App\ItemCategory::query()
-                ->select('item_category_id', 'name', 'image_url')
+
+    $products = App\Product::query()
+                ->select('product_id', 'name', 'price', 'image_url')
                 ->where('name', 'LIKE', "%{$searchTerm}%") 
                 ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
                 ->get();
