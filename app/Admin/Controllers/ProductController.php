@@ -31,7 +31,10 @@ class ProductController extends AdminController
         $grid->column('product_id', __('Product id'));
         $grid->column('name', __('Nombre'));
         $grid->column('description', __('Descripción'));
+        $grid->column('tag', __('Tag'));
         $grid->column('image_url', __('Imagen (URL)'));
+        $grid->column('image_url_2', __('Imagen 2 (URL)'));
+        $grid->column('image_url_3', __('Imagen 3 (URL)'));
         $grid->column('price', __('Precio'));
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
@@ -59,7 +62,10 @@ class ProductController extends AdminController
         $show->field('product_id', __('Product id'));
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));
+        $grid->field('tag', __('Tag'));
         $show->field('image_url', __('Imagen (URL)'));
+        $grid->field('image_url_2', __('Imagen 2 (URL)'));
+        $grid->field('image_url_3', __('Imagen 3 (URL)'));
         $show->field('price', __('Price'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -79,9 +85,12 @@ class ProductController extends AdminController
         $form->hidden('product_id');
         $form->text('name', __('Nombre'))->placeholder('Nombre del producto')->required();
         $form->textarea('description', __('Descripción'))->placeholder('Breve descripción')->required();
+        $grid->field('tag', __('Tag'))->placeholder('Tag del producto');
         $form->currency('price', __('Precio'))->symbol('Gs.')->required();
 
-        $form->image('image_url', 'Imagen del producto')->required();
+        $form->image('image_url', 'Imagen del producto')->placeholder('Seleccionar imagen')->required();
+        $form->image('image_url_2', 'Imagen del producto #2')->placeholder('Seleccionar imagen');
+        $form->image('image_url_3', 'Imagen del producto #3')->placeholder('Seleccionar imagen');
 
         $form->saving(function (Form $form) {
             $form->product_id = Str::lower(str_replace(" ", "-", $form->name));
