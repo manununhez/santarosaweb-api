@@ -5,6 +5,8 @@ namespace App\Admin\Controllers;
 use Illuminate\Support\Str;
 
 use App\ItemCategory;
+use App\ItemInfoHours;
+
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -108,7 +110,7 @@ class ItemCategoryController extends AdminController
             'off' => ['value' => 0, 'text' => 'no', 'color' => 'danger'],
         ];
         $form->switch('delivery_available', __('Delivery disponible'))->states($states);
-        $form->text('info_hours_id', __('Info hours id'))->required();
+        $form->select('info_hours_id', __('Seleccionar los días de trabajo'))->options(ItemInfoHours::all()->pluck('name', 'info_hours_id'));
         $form->text('info_hours_opening', __('Horario de apertura'))->required();
         $form->text('info_hours_closing', __('Horario de cierre'))->required();
 
