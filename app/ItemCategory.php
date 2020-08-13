@@ -17,8 +17,8 @@ class ItemCategory extends Model
 
     protected $fillable = [
         'item_category_id', 'name','description','address_1', 'address_2', 'house_number', 'neighborhood', 
-        'city', 'postal_code', 'coordinate_latitude', 'coordinate_longitude','website', 'email', 'phone','image_url', 
-        'image_url_2', 'image_url_3','delivery_available','info_hours_id','info_hours_opening',
+        'city', 'postal_code', 'coordinate_latitude', 'coordinate_longitude','website', 'email', 'phone','image_url_icon', 
+        'image_url_logo','image_url_1','image_url_2', 'image_url_3','delivery_available','info_hours_id','info_hours_opening',
         'info_hours_closing'
     ];
 

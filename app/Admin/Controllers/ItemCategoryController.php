@@ -44,9 +44,11 @@ class ItemCategoryController extends AdminController
         $grid->column('website', __('Página web'));
         $grid->column('email', __('Email'));
         $grid->column('phone', __('Teléfono'));
-        $grid->column('image_url', __('Image (URL)'));
-        $grid->column('image_url_2', __('Imagen 2 (URL)'));
-        $grid->column('image_url_3', __('Imagen 3 (URL)'));
+        $grid->column('image_url_icon', __('Icono (URL)'));
+        $grid->column('image_url_logo', __('Logo (URL)'));
+        $grid->column('image_url_1', __('Slider 1 (URL)'));
+        $grid->column('image_url_2', __('Slider 2 (URL)'));
+        $grid->column('image_url_3', __('Slider 3 (URL)'));
         $grid->column('delivery_available', __('Delivery disponible'))->display(function ($released) {
             return $released ? 'Sí' : 'No';
         });
@@ -90,9 +92,11 @@ class ItemCategoryController extends AdminController
         $show->field('website', __('Website'));
         $show->field('email', __('Email'));
         $show->field('phone', __('Teléfono móvil'));
-        $show->field('image_url', __('Imagen (URL)'));
-        $show->field('image_url_2', __('Imagen 2 (URL)'));
-        $show->field('image_url_3', __('Imagen 3 (URL)'));
+        $show->field('image_url_icon', __('Icono (URL)'));
+        $show->field('image_url_logo', __('Logo (URL)'));
+        $show->field('image_url_1', __('Slider 1 (URL)'));
+        $show->field('image_url_2', __('Slider 2 (URL)'));
+        $show->field('image_url_3', __('Slider 3 (URL)'));
         $show->field('delivery_available', __('Delivery disponible'));
         $show->field('info_hours_id', __('Info hours id'));
         $show->field('info_hours_opening', __('Horas de apertura'));
@@ -126,9 +130,11 @@ class ItemCategoryController extends AdminController
         $form->url('website', __('Website'));
         $form->text('email', __('Email'));
         $form->mobile('phone', __('Teléfono móvil'))->options(['mask' => '(9999) 999 999']);
-        $form->image('image_url', 'Imagen de la subcategoría')->placeholder('Seleccionar imagen');
-        $form->image('image_url_2', 'Imagen de la subcategoría #2')->placeholder('Seleccionar imagen');
-        $form->image('image_url_3', 'Imagen de la subcategoría #3')->placeholder('Seleccionar imagen');
+        $form->image('image_url_icon', 'Icono de la subcategoría')->placeholder('Seleccionar imagen');
+        $form->image('image_url_logo', 'Logo de la subcategoría')->placeholder('Seleccionar imagen');
+        $form->image('image_url_1', 'Slider de la subcategoría #1')->placeholder('Seleccionar imagen');
+        $form->image('image_url_2', 'Slider de la subcategoría #2')->placeholder('Seleccionar imagen');
+        $form->image('image_url_3', 'Slider de la subcategoría #3')->placeholder('Seleccionar imagen');
         $states = [
             'on'  => ['value' => 1, 'text' => 'sí', 'color' => 'success'],
             'off' => ['value' => 0, 'text' => 'no', 'color' => 'danger'],
