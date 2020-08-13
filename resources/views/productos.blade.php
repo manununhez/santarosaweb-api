@@ -43,8 +43,8 @@
  <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container text-right">
-      <i class="icofont-phone"></i> +595991 748 631
-      <i class="icofont-clock-time icofont-rotate-180"></i> lunes - Sabados: 08:00 AM - 00:00 PM
+      <i class="icofont-phone"></i> {{ $item->phone }}
+      <i class="icofont-clock-time icofont-rotate-180"></i> [ -- FALTA AGREGAR LOS DIAS Y HORAS DE APERTURA/CIERRE -- ]
     </div>
   </section>
 
@@ -53,14 +53,7 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-          @foreach ($products as $product)
-         
-                <a href="#header"> <img  class=" " src="{{asset( 'uploads/'.$item->image_url ) }}"></a>
-                        
-           </a>
-        @endforeach
-
-
+        <a href="#header"> <img  class=" " src="{{asset( 'uploads/'.$item->image_url_logo ) }}"></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -90,7 +83,7 @@
 
           <!-- Slide 1 -->
 
-          <div class="carousel-item active" style="background: url(  {{asset('assets/vendor/img/slide/slide-1.jpg')}});">
+          <div class="carousel-item active" style="background: url(  {{asset( 'uploads/'.$item->image_url_1 )}});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animated fadeInDown"><span>Son Más Que Un </span> Antojo Todo Casero</h2>
@@ -105,7 +98,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url( {{asset('assets/vendor/img/slide/slide-2.jpg')}});">
+          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_2 )}});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animated fadeInDown"><span>Veni a disfrutar </span> de ese antojo que no te deja vivir!!</h2>
@@ -119,7 +112,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url( {{asset('assets/vendor/img/slide/slide-3.jpg')}});">
+          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_3 )}});">
             
 
             <div class="carousel-container">
@@ -172,88 +165,24 @@
           </div>
         </div>
 
-        <div class="row menu-container">
-
-                   
-              
-       @foreach ($products as $product)
-          <div class="col-lg-3 menu-item filter-specialty">
-             <a href="{{asset( 'uploads/'.$product->image_url ) }}" class="venobox" data-gall="gallery-item">
-                        <img src="{{asset( 'uploads/'.$product->image_url ) }}" alt="" class="img-fluid">
-                      </a>
-            <div class="menu-content">
-              <a href="#">{{ $product->name }}</a><span>Precio: {{ $product->price }}</span>
-            </div>
-            <div class="menu-ingredients">
-              {{ $product->description }}
-            </div>
-          </div>
-        @endforeach
-          <div class="col-lg-3 menu-item filter-specialty">
-            <div class="menu-content">
-              <a href="#">Bread barrel</a><span>$6.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-starters">
-            <div class="menu-content">
-              <a href="#">Crab Cake</a><span>$7.95</span>
-            </div>
-            <div class="menu-ingredients">
-              A delicate crab cake served on a toasted roll with lettuce and tartar sauce
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Caesar Selections</a><span>$8.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-specialty">
-            <div class="menu-content">
-              <a href="#">Tuscan Grilled</a><span>$9.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Grilled chicken with provolone, artichoke hearts, and roasted red pesto
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-starters">
-            <div class="menu-content">
-              <a href="#">Mozzarella Stick</a><span>$4.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Greek Salad</a><span>$9.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Fresh spinach, crisp romaine, tomatoes, and Greek olives
-            </div>
-          </div>
-
-          <div class="col-lg-3 menu-item filter-salads">
-            <div class="menu-content">
-              <a href="#">Spinach Salad</a><span>$9.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
-            </div>
-          </div>
-
-           
-
+        <div class="row menu-container">          
+            <!-- Aca deben listarse los productos de un local ! -->      
+            @foreach ($products as $product)
+                <div class="col-lg-3 menu-item filter-specialty">
+                  <a href="{{asset( 'uploads/'.$product->image_url ) }}" class="venobox" data-gall="gallery-item">
+                              <img src="{{asset( 'uploads/'.$product->image_url ) }}" alt="" class="img-fluid">
+                            </a>
+                  <div class="menu-content">
+                    <a href="#">{{ $product->name }}</a><span>Precio: {{ $product->price }}</span>
+                  </div>
+                  <div class="menu-ingredients">
+                    {{ $product->description }}
+                  </div>
+                  <div class="menu-ingredients">
+                    {{ $product->tag }}
+                  </div>
+                </div>
+              @endforeach
         </div>
 
       </div>
@@ -294,14 +223,14 @@
         <div class="section-title">
           <h2><span>Contacte con</span> Nosotros</h2>
           <p>{{ $item->description }}</p>
+
+          <p>Latitud: {{ $item->coordinate_latitude }}</p>
+          <p>Longitud: {{ $item->coordinate_longitude }}</p>
         </div>
       </div>
 
       <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14599.028131037!2d-56.5231846!3d-23.8272374!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9aace72f349dc442!2sSon%20M%C3%A1s%20que%20un%20Antojo%20TODO%20CASERO!5e0!3m2!1ses!2spy!4v1588984303086!5m2!1ses!2spy" style="border:0; width: 100%; height: 350px;" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
-
-       
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14599.028131037!2d{{ $item->coordinate_latitude }}!3d{{ $item->coordinate_longitude }}!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9aace72f349dc442!2sSon%20M%C3%A1s%20que%20un%20Antojo%20TODO%20CASERO!5e0!3m2!1ses!2spy!4v1588984303086!5m2!1ses!2spy" style="border:0; width: 100%; height: 350px;" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
       </div>
 
       <div class="container mt-5">
@@ -312,21 +241,26 @@
               <i class="icofont-google-map"></i>
               <h4>Ubicación:</h4>
 
-              <p>{{ $item->address_item_id }}</p>
+              <p>{{ $item->address_1 }}</p>
+              <p>{{ $item->address_2 }}</p>
+              <p>{{ $item->house_number }}</p>
+              <p>{{ $item->neighborhood }}</p>
+              <p>{{ $item->city }}</p>
+              <p>{{ $item->postal_code }}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="icofont-clock-time icofont-rotate-90"></i>
               <h4>Horarios:</h4>
-              <p>Lunes-Sábados:<br>
+              <p>[ -- FALTA AGREGAR LOS DIAS -- ]<br>
                 Horario apertura: {{ $item->info_hours_opening }}<br>
-                 Horario cierre: {{ $item->info_hours_closing }}</p>
+                Horario cierre: {{ $item->info_hours_closing }}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="icofont-envelope"></i>
               <h4>Email:</h4>
-              <p>sonmasqueunantojo@gmail.com</p>
+              <p>{{ $item->email }}</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
