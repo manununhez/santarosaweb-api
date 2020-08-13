@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemAddressesTable extends Migration
+class AddAddressColumnsToItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateItemAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_addresses', function (Blueprint $table) {
-            $table->string('item_address_id')->primary();
+        Schema::table('item_categories', function (Blueprint $table) {
             $table->string('address_1');
             $table->string('address_2')->nullable();
             $table->string('house_number')->nullable();
@@ -23,7 +22,6 @@ class CreateItemAddressesTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('coordinate_latitude');
             $table->string('coordinate_longitude');
-            $table->timestamps();
         });
     }
 
@@ -34,6 +32,15 @@ class CreateItemAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_addresses');
+        Schema::table('item_categories', function (Blueprint $table) {
+            $table->dropColumn('address_1');
+            $table->dropColumn('address_2');
+            $table->dropColumn('house_number');
+            $table->dropColumn('neighborhood');
+            $table->dropColumn('city');
+            $table->dropColumn('postal_code');
+            $table->dropColumn('coordinate_latitude');
+            $table->dropColumn('coordinate_longitude');
+        });
     }
 }

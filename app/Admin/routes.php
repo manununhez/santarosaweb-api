@@ -17,7 +17,6 @@ Route::group([
     $router->resource('categories', CategoryController::class);
     $router->resource('category-item-categories', CategoryItemCategoryController::class);
     $router->resource('category-sections', CategorySectionController::class);
-    $router->resource('item-addresses', ItemAddressController::class);
     $router->resource('item-categories', ItemCategoryController::class);
     $router->resource('item-category-products', ItemCategoryProductController::class);
     $router->resource('item-info-hours', ItemInfoHoursController::class);

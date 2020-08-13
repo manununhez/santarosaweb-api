@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 
 use App\ItemCategory;
 use App\Product;
-use App\ItemAddress;
 
 use Validator;
 
@@ -62,11 +61,13 @@ class ItemsCategoryController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors(), 400);       
         }
 
-        //First create address
+        //then, create itemcategory
         try{
-            $id = 'address-'.Str::lower(str_replace(" ", "-", $input['address_1']));
-            $address = ItemAddress::create([
-                'item_address_id' => $id, //code - item name
+            $id = Str::lower(str_replace(" ", "-", $input['name']));
+            $item = ItemCategory::create([
+                'item_category_id' => $id,
+                'name' => $input['name'],
+                'description' => isset($input['description']) ? $input['description'] : null,
                 'address_1' => $input['address_1'],
                 'address_2' => isset($input['address_2']) ? $input['address_2'] : null,
                 'house_number' => isset($input['house_number']) ? $input['house_number'] : null,
@@ -75,19 +76,6 @@ class ItemsCategoryController extends BaseController
                 'postal_code' => isset($input['postal_code']) ? $input['postal_code'] : null,
                 'coordinate_latitude' => $input['coordinate_latitude'],
                 'coordinate_longitude' => $input['coordinate_longitude'],
-            ]);
-        } catch(Exception $exception){
-            return $this->sendError($exception, 500);
-        }
-
-        //then, create itemcategory
-        try{
-            $id = Str::lower(str_replace(" ", "-", $input['name']));
-            $item = ItemCategory::create([
-                'item_category_id' => $id,
-                'name' => $input['name'],
-                'description' => isset($input['description']) ? $input['description'] : null,
-                'address_item_id' => $address['item_address_id'],
                 'website' => isset($input['website']) ? $input['website'] : null,
                 'phone' => isset($input['phone']) ? $input['phone'] : null,
                 'image_url' => isset($input['image_url']) ? $input['image_url'] : null,

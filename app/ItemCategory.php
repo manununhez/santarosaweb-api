@@ -15,7 +15,8 @@ class ItemCategory extends Model
     // If you wish to use a non-incrementing or a non-numeric primary key you must set the public $incrementing property on your model to false
     public $incrementing = false;
 
-    protected $fillable = ['item_category_id', 'name','description','address_item_id','website','phone','image_url',
+    protected $fillable = ['item_category_id', 'name','description','address_1', 'address_2', 'house_number', 'neighborhood', 
+    'city', 'postal_code', 'coordinate_latitude', 'coordinate_longitude','website','phone','image_url',
         'delivery_available','info_hours_id','info_hours_opening','info_hours_closing'];
 
     public function products(){
