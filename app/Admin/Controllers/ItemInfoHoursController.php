@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use Illuminate\Support\Str;
+
 use App\ItemInfoHours;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
