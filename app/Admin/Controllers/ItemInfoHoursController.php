@@ -60,8 +60,12 @@ class ItemInfoHoursController extends AdminController
     protected function form()
     {
         $form = new Form(new ItemInfoHours());
-
+        $form->hidden('info_hours_id');
         $form->text('work_days_description', __('Work days description'));
+
+        $form->saving(function (Form $form) {
+            $form->info_hours_id = Str::lower(str_replace(" ", "-", $form->work_days_description));
+        });
 
         return $form;
     }
