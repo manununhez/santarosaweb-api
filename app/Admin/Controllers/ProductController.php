@@ -62,10 +62,10 @@ class ProductController extends AdminController
         $show->field('product_id', __('Product id'));
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));
-        $grid->field('tag', __('Tag'));
+        $show->field('tag', __('Tag'));
         $show->field('image_url', __('Imagen (URL)'));
-        $grid->field('image_url_2', __('Imagen 2 (URL)'));
-        $grid->field('image_url_3', __('Imagen 3 (URL)'));
+        $show->field('image_url_2', __('Imagen 2 (URL)'));
+        $show->field('image_url_3', __('Imagen 3 (URL)'));
         $show->field('price', __('Price'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -85,7 +85,7 @@ class ProductController extends AdminController
         $form->hidden('product_id');
         $form->text('name', __('Nombre'))->placeholder('Nombre del producto')->required();
         $form->textarea('description', __('Descripción'))->placeholder('Breve descripción')->required();
-        $grid->text('tag', __('Tag'))->placeholder('Tag del producto');
+        $form->text('tag', __('Tag'))->placeholder('Tag del producto');
         $form->currency('price', __('Precio'))->symbol('Gs.')->required();
 
         $form->image('image_url', 'Imagen del producto')->placeholder('Seleccionar imagen')->required();

@@ -73,8 +73,8 @@ class ItemCategoryController extends AdminController
         $show->field('website', __('Website'));
         $show->field('phone', __('Teléfono móvil'));
         $show->field('image_url', __('Imagen (URL)'));
-        $grid->field('image_url_2', __('Imagen 2 (URL)'));
-        $grid->field('image_url_3', __('Imagen 3 (URL)'));
+        $show->field('image_url_2', __('Imagen 2 (URL)'));
+        $show->field('image_url_3', __('Imagen 3 (URL)'));
         $show->field('delivery_available', __('Delivery disponible'));
         $show->field('info_hours_id', __('Info hours id'));
         $show->field('info_hours_opening', __('Horas de apertura'));
