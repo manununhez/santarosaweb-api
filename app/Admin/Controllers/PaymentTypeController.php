@@ -17,7 +17,7 @@ class PaymentTypeController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Tipos de pago';
+    protected $title = 'Métodos de pago';
 
     /**
      * Make a grid builder.
