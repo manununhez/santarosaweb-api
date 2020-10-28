@@ -140,7 +140,7 @@ class ItemCategoryController extends AdminController
             'off' => ['value' => 0, 'text' => 'no', 'color' => 'danger'],
         ];
         $form->switch('delivery_available', __('Delivery disponible'))->states($states);
-        $form->select('info_hours_id', __('Seleccionar los días de trabajo'))->options(ItemInfoHours::all()->pluck('work_days_description', 'info_hours_id'));
+        $form->select('info_hours_id', __('Seleccionar los días de trabajo'))->options(ItemInfoHours::all()->pluck('work_days_description', 'info_hours_id'))->required();
         $form->text('info_hours_opening', __('Horario de apertura'))->required();
         $form->text('info_hours_closing', __('Horario de cierre'))->required();
 
