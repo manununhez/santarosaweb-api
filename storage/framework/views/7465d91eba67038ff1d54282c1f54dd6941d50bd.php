@@ -50,7 +50,7 @@
             <a class="box_cate_interna   fadeIn2" href="<?php echo e(route('productosXsubCategoria', [$section, $category, $item]), false); ?>">         
             
               <div class=" img-hover-zoom img-hover-zoom--basic text-center">
-                <img class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url ), false); ?>">
+                <img class=" " src="<?php echo e(asset( 'uploads/'.$item->image_url_icon ), false); ?>">
               </div>
               
               <div class="text-white-interna  ">
