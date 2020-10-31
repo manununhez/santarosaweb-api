@@ -24,7 +24,12 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/style.css')}}">
 
-  
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <!-- jsFiddle will insert css and js -->
+  </head>
      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
@@ -220,15 +225,11 @@
         <div class="section-title">
           <h2><span>Contacte con</span> Nosotros</h2>
           <p>{{ $item->description }}</p>
-
-          <p>Latitud: {{ $item->coordinate_latitude }}</p>
-          <p>Longitud: {{ $item->coordinate_longitude }}</p>
         </div>
       </div>
 
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14599.028131037!2d{{ $item->coordinate_latitude }}!3d{{ $item->coordinate_longitude }}!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9aace72f349dc442!2sSon%20M%C3%A1s%20que%20un%20Antojo%20TODO%20CASERO!5e0!3m2!1ses!2spy!4v1588984303086!5m2!1ses!2spy" style="border:0; width: 100%; height: 350px;" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div>
+      <!--The div element for the map -->
+    <div id="map"></div>
 
       <div class="container mt-5">
 
@@ -339,6 +340,22 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+
+        // Initialize and add the map
+        function initMap() {
+          // The location of Uluru
+          const uluru = { lat: "{{ $item->coordinate_latitude }}", lng: "{{ $item->coordinate_longitude }}" };
+          // The map, centered at Uluru
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+          });
+          // The marker, positioned at Uluru
+          const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+          });
+        }
     </script>
 
       
