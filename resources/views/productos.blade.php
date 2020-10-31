@@ -44,7 +44,7 @@
   <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container text-right">
       <i class="icofont-phone"></i> {{ $item->phone }}
-      <i class="icofont-clock-time icofont-rotate-180"></i> [ -- FALTA AGREGAR LOS DIAS Y HORAS DE APERTURA/CIERRE -- ]
+      <i class="icofont-clock-time icofont-rotate-180"></i> {{ $item->info_hours_id }}
     </div>
   </section>
 
@@ -83,12 +83,11 @@
 
           <!-- Slide 1 -->
 
-          <div class="carousel-item active" style="background: url(  {{asset( 'uploads/'.$item->image_url_1 )}});">
+          <div class="carousel-item active" style="background: url(  {{asset( 'uploads/'.$item->image_url_slider_1 )}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Son Más Que Un </span> Antojo Todo Casero</h2>
-                <p class="animated fadeInUp">Estamos sobre la ruta 11 Juana Maria de Lara, frente mismo al Hotel Brayan Nicolas!
-                  Delivery 0991748631</p>
+                <h2 class="animated fadeInDown">{{ $item->title_slider_1 }}</h2>
+                <p class="animated fadeInUp">{{ $item->description_slider_1 }}</p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Nuestro menú</a>
                   <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Reservar</a>
@@ -98,11 +97,11 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_2 )}});">
+          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_slider_2 )}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Veni a disfrutar </span> de ese antojo que no te deja vivir!!</h2>
-                <p class="animated fadeInUp">Las mejores pizzas de Santa Rosa Del Aguaray</p>
+                <h2 class="animated fadeInDown">{{ $item->title_slider_2 }}</h2>
+                <p class="animated fadeInUp">{{ $item->description_slider_2 }}</p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Pizza</a>
                   <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Hacer pedido</a>
@@ -112,13 +111,11 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_3 )}});">
-            
-
+          <div class="carousel-item" style="background: url( {{asset( 'uploads/'.$item->image_url_slider_3 )}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Buffet </span> todos los días </h2>
-                <p class="animated fadeInUp">Ruta 11 juana maria de lara frente al hotel brayan nicolas. Delivery 099174863</p>
+                <h2 class="animated fadeInDown">{{ $item->title_slider_3 }}</h2>
+                <p class="animated fadeInUp">{{ $item->description_slider_3 }}</p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Buffet</a>
                    
@@ -202,9 +199,9 @@
             <div class=" text-center">
             
 
-              <a class="btn-whatsapp animated fadeIn scrollto" href="https://api.whatsapp.com/send?phone=5959991748631&amp;text=SR.Online: " target="_blank"><span class="fa fa-whatsapp"></span>whatsapp</a>
+              <a class="btn-whatsapp animated fadeIn scrollto" href="https://api.whatsapp.com/send?phone={{ $item->whatsapp }}&amp;text=SR.Online: " target="_blank"><span class="fa fa-whatsapp"></span>whatsapp</a>
               
-              <a href="tel:+595991 748 631" class="btn-menu animated fadeIn scrollto"><i class="icofont-phone"></i>Llamar</a>
+              <a href="tel:+595991 748 631" class="btn-menu animated fadeIn scrollto"><i class="icofont-phone"></i>Llamar: {{ $item->phone }}</a>
             </div>
         
 
@@ -252,7 +249,7 @@
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="icofont-clock-time icofont-rotate-90"></i>
               <h4>Horarios:</h4>
-              <p>[ -- FALTA AGREGAR LOS DIAS -- ]<br>
+                Horario: {{ $item->info_hours_id }}<br>
                 Horario apertura: {{ $item->info_hours_opening }}<br>
                 Horario cierre: {{ $item->info_hours_closing }}</p>
             </div>
@@ -268,6 +265,11 @@
               <h4>Llamada</h4>
               <p>Telefono: {{ $item->phone }}</p>
             </div>
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="icofont-phone"></i>
+              <h4>Whatsapp</h4>
+              <p>Telefono: {{ $item->whatsapp }}</p>
+            </div>
           </div>
         </div>
 
@@ -281,14 +283,13 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Todo Casero <br><span>Mas que un Antojo</span></h3>
-      <p> {{ $item->description }}</p>
+      <h3>{{ $item->footer_title }}</h3>
+      <p> {{ $item->footer_description }}</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i>{{ $item->twitter }}</a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i>{{ $item->facebook }}</a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i>{{ $item->instagram }}</a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i>{{ $item->linkedin }}</a>
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>Mas que un Antojo</span></strong>. Todos los derechos reservados
