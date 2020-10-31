@@ -17,7 +17,10 @@ class CreateProductsTable extends Migration
             $table->string('product_id')->primary();
             $table->string('name');
             $table->text('description');
+            $table->text('tag')->nullable();
             $table->string('image_url');
+            $table->string('image_url_2')->nullable();
+            $table->string('image_url_3')->nullable();
             $table->string('price');
             $table->timestamps();
         });
