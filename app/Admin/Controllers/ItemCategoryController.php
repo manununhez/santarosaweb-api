@@ -183,11 +183,13 @@ class ItemCategoryController extends AdminController
             $form->text('info_hours_opening', __('Horario de apertura'))->required();
             $form->text('info_hours_closing', __('Horario de cierre'))->required();
             $form->select('product_type', __('Seleccionar tipo de negocio'))->options(["menu" => "Menu", "servicios" => "Servicios", "productos" => "Productos"]);
+            $form->text('footer_title', 'Titulo footer')->placeholder('titulo');
+            $form->text('footer_description', 'Descripcion footer')->placeholder('descripcion');
+            $form->image('image_url_icon', 'Icono de la subcategoría')->placeholder('Seleccionar imagen icono');
+            $form->image('image_url_logo', 'Logo de la subcategoría')->placeholder('Seleccionar imagen logo');
         });
 
         $form->column(1/2, function ($form) {
-            $form->image('image_url_icon', 'Icono de la subcategoría')->placeholder('Seleccionar imagen icono');
-            $form->image('image_url_logo', 'Logo de la subcategoría')->placeholder('Seleccionar imagen logo');
             $form->image('image_url_slider_1', 'Slider de la subcategoría #1')->placeholder('Seleccionar imagen #1');
             $form->text('title_slider_1', 'Titulo slider #1')->placeholder('Titulo slider #1');
             $form->text('description_slider_1', 'Descripcion slider #1')->placeholder('Descripcion slider #1');
@@ -210,8 +212,6 @@ class ItemCategoryController extends AdminController
             $form->url('facebook', 'Facebook')->placeholder('Facebook url');
             $form->url('instagram', 'Instagram')->placeholder('Instagram url');
             $form->url('linkedin', 'Linkedin')->placeholder('Linkedin url');
-            $form->text('footer_title', 'Titulo footer')->placeholder('titulo');
-            $form->text('footer_description', 'Descripcion footer')->placeholder('descripcion');
         });
 
         $form->saving(function (Form $form) {

@@ -94,8 +94,7 @@
                 <h2 class="animated fadeInDown">{{ $item->title_slider_1 }}</h2>
                 <p class="animated fadeInUp">{{ $item->description_slider_1 }}</p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Nuestro menú</a>
-                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Reservar</a>
+                  <a href="{{ $item->btn_link_slider_1 }}" class="btn-menu animated fadeIn scrollto">{{ $item->btn_text_slider_1 }}</a>
                 </div>
               </div>
             </div>
@@ -108,8 +107,8 @@
                 <h2 class="animated fadeInDown">{{ $item->title_slider_2 }}</h2>
                 <p class="animated fadeInUp">{{ $item->description_slider_2 }}</p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Pizza</a>
-                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Hacer pedido</a>
+                <a href="{{ $item->btn_link_slider_2 }}" class="btn-menu animated fadeIn scrollto">{{ $item->btn_text_slider_2 }}</a>
+
                 </div>
               </div>
             </div>
@@ -122,8 +121,8 @@
                 <h2 class="animated fadeInDown">{{ $item->title_slider_3 }}</h2>
                 <p class="animated fadeInUp">{{ $item->description_slider_3 }}</p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Buffet</a>
-                   
+                <a href="{{ $item->btn_link_slider_3 }}" class="btn-menu animated fadeIn scrollto">{{ $item->btn_text_slider_3 }}</a>
+
                 </div>
               </div>
             </div>
