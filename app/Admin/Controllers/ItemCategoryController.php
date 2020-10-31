@@ -50,12 +50,18 @@ class ItemCategoryController extends AdminController
         $grid->column('image_url_slider_1', __('Slider 1 (URL)'));
         $grid->column('title_slider_1', __('Titulo slider 1'));
         $grid->column('description_slider_1', __('Descripcion slider 1'));
+        $grid->column('btn_text_slider_1', __('Texto boton slider 1'));
+        $grid->column('btn_link_slider_1', __('Link boton slider 1'));
         $grid->column('image_url_slider_2', __('Slider 2 (URL)'));
         $grid->column('title_slider_2', __('Titulo slider 2'));
         $grid->column('description_slider_2', __('Descripcion slider 2'));
+        $grid->column('btn_text_slider_2', __('Texto boton slider 2'));
+        $grid->column('btn_link_slider_2', __('Link boton slider 2'));
         $grid->column('image_url_slider_3', __('Slider 3 (URL)'));
         $grid->column('title_slider_3', __('Titulo slider 3'));
         $grid->column('description_slider_3', __('Descripcion slider 3'));
+        $grid->column('btn_text_slider_3', __('Texto boton slider 3'));
+        $grid->column('btn_link_slider_3', __('Link boton slider 3'));
         $grid->column('delivery_available', __('Delivery disponible'))->display(function ($released) {
             return $released ? 'Sí' : 'No';
         });
@@ -112,12 +118,18 @@ class ItemCategoryController extends AdminController
         $show->field('image_url_slider_1', __('Slider 1 (URL)'));
         $show->field('title_slider_1', __('Titulo slider 1'));
         $show->field('description_slider_1', __('Descripcion slider 1'));
+        $show->field('btn_text_slider_1', __('Texto boton slider 1'));
+        $show->field('btn_link_slider_1', __('Link boton slider 1'));
         $show->field('image_url_slider_2', __('Slider 2 (URL)'));
         $show->field('title_slider_2', __('Titulo slider 2'));
         $show->field('description_slider_2', __('Descripcion slider 2'));
+        $show->field('btn_text_slider_2', __('Texto boton slider 2'));
+        $show->field('btn_link_slider_2', __('Link boton slider 2'));
         $show->field('image_url_slider_3', __('Slider 3 (URL)'));
         $show->field('title_slider_3', __('Titulo slider 3'));
         $show->field('description_slider_3', __('Descripcion slider 3'));
+        $show->field('btn_text_slider_3', __('Texto boton slider 3'));
+        $show->field('btn_link_slider_3', __('Link boton slider 3'));
         $show->field('delivery_available', __('Delivery disponible'));
         $show->field('info_hours_id', __('Info hours id'));
         $show->field('info_hours_opening', __('Horas de apertura'));
@@ -170,21 +182,30 @@ class ItemCategoryController extends AdminController
             $form->select('info_hours_id', __('Seleccionar los días de trabajo'))->options(ItemInfoHours::all()->pluck('work_days_description', 'info_hours_id'))->required();
             $form->text('info_hours_opening', __('Horario de apertura'))->required();
             $form->text('info_hours_closing', __('Horario de cierre'))->required();
+            $form->select('product_type', __('Seleccionar tipo de negocio'))->options(["menu" => "Menu", "servicios" => "Servicios", "productos" => "Productos"]);
         });
 
         $form->column(1/2, function ($form) {
-            $form->select('product_type', __('Seleccionar tipo de negocio'))->options(["menu" => "Menu", "servicios" => "Servicios", "productos" => "Productos"]);
             $form->image('image_url_icon', 'Icono de la subcategoría')->placeholder('Seleccionar imagen icono');
             $form->image('image_url_logo', 'Logo de la subcategoría')->placeholder('Seleccionar imagen logo');
             $form->image('image_url_slider_1', 'Slider de la subcategoría #1')->placeholder('Seleccionar imagen #1');
             $form->text('title_slider_1', 'Titulo slider #1')->placeholder('Titulo slider #1');
             $form->text('description_slider_1', 'Descripcion slider #1')->placeholder('Descripcion slider #1');
+            $form->text('btn_text_slider_1', 'Texto boton slider #1')->placeholder('Texto boton slider #1');
+            $form->text('btn_link_slider_1', 'Link boton slider #1')->placeholder('Link boton slider #1');
+
             $form->image('image_url_slider_2', 'Slider de la subcategoría #2')->placeholder('Seleccionar imagen #2');
             $form->text('title_slider_2', 'Titulo slider #2')->placeholder('Titulo slider #2');
             $form->text('description_slider_2', 'Descripcion slider #2')->placeholder('Descripcion slider #2');
+            $form->text('btn_text_slider_2', 'Texto boton slider #2')->placeholder('Texto boton slider #2');
+            $form->text('btn_link_slider_2', 'Link boton slider #2')->placeholder('Link boton slider #2');
+
             $form->image('image_url_slider_3', 'Slider de la subcategoría #3')->placeholder('Seleccionar imagen #3');
             $form->text('title_slider_3', 'Titulo slider #3')->placeholder('Titulo slider #3');
             $form->text('description_slider_3', 'Descripcion slider #3')->placeholder('Descripcion slider #3');
+            $form->text('btn_text_slider_3', 'Texto boton slider #3')->placeholder('Texto boton slider #3');
+            $form->text('btn_link_slider_3', 'Link boton slider #3')->placeholder('Link boton slider #3');
+
             $form->url('twitter', 'Twitter')->placeholder('Twitter url');
             $form->url('facebook', 'Facebook')->placeholder('Facebook url');
             $form->url('instagram', 'Instagram')->placeholder('Instagram url');
