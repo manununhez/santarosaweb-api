@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/style.css')}}">
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz4CEFmlQtCStVISj4Uhr64dX6qxGVy3s&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
     <!-- jsFiddle will insert css and js -->
@@ -229,7 +229,7 @@
       </div>
 
       <!--The div element for the map -->
-    <div id="map"></div>
+    <div id="map" style="height: 400px;width: 100%;"></div>
 
       <div class="container mt-5">
 
@@ -287,9 +287,9 @@
       <h3>{{ $item->footer_title }}</h3>
       <p> {{ $item->footer_description }}</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i>{{ $item->twitter }}</a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i>{{ $item->facebook }}</a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i>{{ $item->instagram }}</a>
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i>{{ $item->twitter }}</a><br/>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i>{{ $item->facebook }}</a><br/>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i>{{ $item->instagram }}</a><br/>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i>{{ $item->linkedin }}</a>
       </div>
       <div class="copyright">
@@ -339,25 +339,29 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-        });
+       
+	initMap();	
 
-        // Initialize and add the map
+	});
+	
+
+	// Initialize and add the map
         function initMap() {
           // The location of Uluru
-          var latitude = parseInt("{{ $item->coordinate_latitude }}");
-          var longitude = parseInt("{{ $item->coordinate_longitude }}");
-          const uluru = { lat: latitude, lng:  longitude};
+          var latitude = parseFloat("{{ $item->coordinate_latitude }}");
+          var longitude = parseFloat("{{ $item->coordinate_longitude }}");
+          const item_coord = { lat: latitude, lng:  longitude};
           // The map, centered at Uluru
           const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 4,
-            center: uluru,
+            zoom: 16,
+            center: item_coord,
           });
           // The marker, positioned at Uluru
           const marker = new google.maps.Marker({
-            position: uluru,
+            position: item_coord,
             map: map,
-          });
-        }
+	  });
+	}
     </script>
 
       

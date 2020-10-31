@@ -24,7 +24,12 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css'), false); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/vendor/style.css'), false); ?>">
 
-  
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz4CEFmlQtCStVISj4Uhr64dX6qxGVy3s&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <!-- jsFiddle will insert css and js -->
+  </head>
      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
@@ -45,7 +50,8 @@
     <div class="container text-right">
       <i class="icofont-phone"></i> <?php echo e($item->phone, false); ?>
 
-      <i class="icofont-clock-time icofont-rotate-180"></i> [ -- FALTA AGREGAR LOS DIAS Y HORAS DE APERTURA/CIERRE -- ]
+      <i class="icofont-clock-time icofont-rotate-180"></i> <?php echo e($item->info_hours_id, false); ?>
+
     </div>
   </section>
 
@@ -84,12 +90,11 @@
 
           <!-- Slide 1 -->
 
-          <div class="carousel-item active" style="background: url(  <?php echo e(asset( 'uploads/'.$item->image_url_1 ), false); ?>);">
+          <div class="carousel-item active" style="background: url(  <?php echo e(asset( 'uploads/'.$item->image_url_slider_1 ), false); ?>);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Son Más Que Un </span> Antojo Todo Casero</h2>
-                <p class="animated fadeInUp">Estamos sobre la ruta 11 Juana Maria de Lara, frente mismo al Hotel Brayan Nicolas!
-                  Delivery 0991748631</p>
+                <h2 class="animated fadeInDown"><?php echo e($item->title_slider_1, false); ?></h2>
+                <p class="animated fadeInUp"><?php echo e($item->description_slider_1, false); ?></p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Nuestro menú</a>
                   <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Reservar</a>
@@ -99,11 +104,11 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url( <?php echo e(asset( 'uploads/'.$item->image_url_2 ), false); ?>);">
+          <div class="carousel-item" style="background: url( <?php echo e(asset( 'uploads/'.$item->image_url_slider_2 ), false); ?>);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Veni a disfrutar </span> de ese antojo que no te deja vivir!!</h2>
-                <p class="animated fadeInUp">Las mejores pizzas de Santa Rosa Del Aguaray</p>
+                <h2 class="animated fadeInDown"><?php echo e($item->title_slider_2, false); ?></h2>
+                <p class="animated fadeInUp"><?php echo e($item->description_slider_2, false); ?></p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Pizza</a>
                   <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Hacer pedido</a>
@@ -113,13 +118,11 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url( <?php echo e(asset( 'uploads/'.$item->image_url_3 ), false); ?>);">
-            
-
+          <div class="carousel-item" style="background: url( <?php echo e(asset( 'uploads/'.$item->image_url_slider_3 ), false); ?>);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animated fadeInDown"><span>Buffet </span> todos los días </h2>
-                <p class="animated fadeInUp">Ruta 11 juana maria de lara frente al hotel brayan nicolas. Delivery 099174863</p>
+                <h2 class="animated fadeInDown"><?php echo e($item->title_slider_3, false); ?></h2>
+                <p class="animated fadeInUp"><?php echo e($item->description_slider_3, false); ?></p>
                 <div>
                   <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Buffet</a>
                    
@@ -205,9 +208,9 @@
             <div class=" text-center">
             
 
-              <a class="btn-whatsapp animated fadeIn scrollto" href="https://api.whatsapp.com/send?phone=5959991748631&amp;text=SR.Online: " target="_blank"><span class="fa fa-whatsapp"></span>whatsapp</a>
+              <a class="btn-whatsapp animated fadeIn scrollto" href="https://api.whatsapp.com/send?phone=<?php echo e($item->whatsapp, false); ?>&amp;text=SR.Online: " target="_blank"><span class="fa fa-whatsapp"></span>whatsapp</a>
               
-              <a href="tel:+595991 748 631" class="btn-menu animated fadeIn scrollto"><i class="icofont-phone"></i>Llamar</a>
+              <a href="tel:+595991 748 631" class="btn-menu animated fadeIn scrollto"><i class="icofont-phone"></i>Llamar: <?php echo e($item->phone, false); ?></a>
             </div>
         
 
@@ -226,15 +229,11 @@
         <div class="section-title">
           <h2><span>Contacte con</span> Nosotros</h2>
           <p><?php echo e($item->description, false); ?></p>
-
-          <p>Latitud: <?php echo e($item->coordinate_latitude, false); ?></p>
-          <p>Longitud: <?php echo e($item->coordinate_longitude, false); ?></p>
         </div>
       </div>
 
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14599.028131037!2d<?php echo e($item->coordinate_latitude, false); ?>!3d<?php echo e($item->coordinate_longitude, false); ?>!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9aace72f349dc442!2sSon%20M%C3%A1s%20que%20un%20Antojo%20TODO%20CASERO!5e0!3m2!1ses!2spy!4v1588984303086!5m2!1ses!2spy" style="border:0; width: 100%; height: 350px;" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div>
+      <!--The div element for the map -->
+    <div id="map" style="height: 400px;width: 100%;"></div>
 
       <div class="container mt-5">
 
@@ -255,7 +254,7 @@
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="icofont-clock-time icofont-rotate-90"></i>
               <h4>Horarios:</h4>
-              <p>[ -- FALTA AGREGAR LOS DIAS -- ]<br>
+                Horario: <?php echo e($item->info_hours_id, false); ?><br>
                 Horario apertura: <?php echo e($item->info_hours_opening, false); ?><br>
                 Horario cierre: <?php echo e($item->info_hours_closing, false); ?></p>
             </div>
@@ -271,6 +270,11 @@
               <h4>Llamada</h4>
               <p>Telefono: <?php echo e($item->phone, false); ?></p>
             </div>
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="icofont-phone"></i>
+              <h4>Whatsapp</h4>
+              <p>Telefono: <?php echo e($item->whatsapp, false); ?></p>
+            </div>
           </div>
         </div>
 
@@ -284,14 +288,13 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Todo Casero <br><span>Mas que un Antojo</span></h3>
-      <p> <?php echo e($item->description, false); ?></p>
+      <h3><?php echo e($item->footer_title, false); ?></h3>
+      <p> <?php echo e($item->footer_description, false); ?></p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i><?php echo e($item->twitter, false); ?></a><br/>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i><?php echo e($item->facebook, false); ?></a><br/>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i><?php echo e($item->instagram, false); ?></a><br/>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i><?php echo e($item->linkedin, false); ?></a>
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>Mas que un Antojo</span></strong>. Todos los derechos reservados
@@ -340,7 +343,29 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-        });
+       
+	initMap();	
+
+	});
+	
+
+	// Initialize and add the map
+        function initMap() {
+          // The location of Uluru
+          var latitude = parseFloat("<?php echo e($item->coordinate_latitude, false); ?>");
+          var longitude = parseFloat("<?php echo e($item->coordinate_longitude, false); ?>");
+          const item_coord = { lat: latitude, lng:  longitude};
+          // The map, centered at Uluru
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 16,
+            center: item_coord,
+          });
+          // The marker, positioned at Uluru
+          const marker = new google.maps.Marker({
+            position: item_coord,
+            map: map,
+	  });
+	}
     </script>
 
       
