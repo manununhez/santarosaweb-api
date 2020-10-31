@@ -173,7 +173,7 @@ class ItemCategoryController extends AdminController
         });
 
         $form->column(1/2, function ($form) {
-            $form->select('product_type', __('Seleccionar tipo de negocio'))->options([1 => "Menu", 2 => "Servicios", 3 => "Productos"]);
+            $form->select('product_type', __('Seleccionar tipo de negocio'))->options(["menu" => "Menu", "servicios" => "Servicios", "productos" => "Productos"]);
             $form->image('image_url_icon', 'Icono de la subcategoría')->placeholder('Seleccionar imagen icono');
             $form->image('image_url_logo', 'Logo de la subcategoría')->placeholder('Seleccionar imagen logo');
             $form->image('image_url_slider_1', 'Slider de la subcategoría #1')->placeholder('Seleccionar imagen #1');
