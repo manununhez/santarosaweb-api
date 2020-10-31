@@ -34,15 +34,22 @@ class ItemsCategoryController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-        
+
         $validator = Validator::make($input, [
             'name' => 'required|string',
             'description' => 'string',
             'image_url_icon' => 'string',
             'image_url_logo' => 'string',
-            'image_url_1' => 'string',
-            'image_url_2' => 'string',
-            'image_url_3' => 'string',
+            'image_url_slider_1' => 'string',
+            'image_url_slider_2' => 'string',
+            'image_url_slider_3' => 'string',
+            'title_slider_1' => 'string',
+            'title_slider_2' => 'string',
+            'title_slider_3' => 'string',
+            'description_slider_1' => 'string',
+            'description_slider_2' => 'string',
+            'description_slider_3' => 'string',
+            'product_type' => 'string',
             //address
             'address_1' => 'required|string',
             'address_2' => 'string',
@@ -55,11 +62,20 @@ class ItemsCategoryController extends BaseController
             'website' => 'string',
             'email' => 'string',
             'phone' => 'string',
+            'whatsapp' => 'string',
             'delivery_available' => 'boolean',
             //info hours
             'info_hours_id' => 'required|integer',
             'info_hours_opening' => 'required|string',
             'info_hours_closing' => 'required|string',
+            //footer
+            'footer_title' => 'string',
+            'footer_description' => 'string',
+            //social networks
+            'twitter' => 'string',
+            'facebook' => 'string',
+            'instagram' => 'string',
+            'linkedin' => 'string',
         ]);
 
         if($validator->fails()){
@@ -73,6 +89,7 @@ class ItemsCategoryController extends BaseController
                 'item_category_id' => $id,
                 'name' => $input['name'],
                 'description' => isset($input['description']) ? $input['description'] : null,
+                'product_type' => isset($input['product_type']) ? $input['product_type'] : null,
                 'address_1' => $input['address_1'],
                 'address_2' => isset($input['address_2']) ? $input['address_2'] : null,
                 'house_number' => isset($input['house_number']) ? $input['house_number'] : null,
@@ -84,15 +101,28 @@ class ItemsCategoryController extends BaseController
                 'website' => isset($input['website']) ? $input['website'] : null,
                 'email' => isset($input['email']) ? $input['email'] : null,
                 'phone' => isset($input['phone']) ? $input['phone'] : null,
+                'whatsapp' => isset($input['whatsapp']) ? $input['whatsapp'] : null,
                 'image_url_icon' => isset($input['image_url_icon']) ? $input['image_url_icon'] : null,
                 'image_url_logo' => isset($input['image_url_logo']) ? $input['image_url_logo'] : null,
-                'image_url_1' => isset($input['image_url_1']) ? $input['image_url_1'] : null,
-                'image_url_2' => isset($input['image_url_2']) ? $input['image_url_2'] : null,
-                'image_url_3' => isset($input['image_url_3']) ? $input['image_url_3'] : null,
+                'image_url_slider_1' => isset($input['image_url_slider_1']) ? $input['image_url_slider_1'] : null,
+                'image_url_slider_2' => isset($input['image_url_slider_2']) ? $input['image_url_slider_2'] : null,
+                'image_url_slider_3' => isset($input['image_url_slider_3']) ? $input['image_url_slider_3'] : null,
+                'title_slider_1' => isset($input['title_slider_1']) ? $input['title_slider_1'] : null,
+                'title_slider_2' => isset($input['title_slider_2']) ? $input['title_slider_2'] : null,
+                'title_slider_3' => isset($input['title_slider_3']) ? $input['title_slider_3'] : null,
+                'description_slider_1' => isset($input['description_slider_1']) ? $input['description_slider_1'] : null,
+                'description_slider_2' => isset($input['description_slider_2']) ? $input['description_slider_2'] : null,
+                'description_slider_3' => isset($input['description_slider_3']) ? $input['description_slider_3'] : null,
                 'delivery_available' => $input['delivery_available'],
                 'info_hours_id' => $input['info_hours_id'],
                 'info_hours_opening' => $input['info_hours_opening'],
                 'info_hours_closing' => $input['info_hours_closing'],
+                'footer_title' => isset($input['footer_title']) ? $input['footer_title'] : null,
+                'footer_description' => isset($input['footer_description']) ? $input['footer_description'] : null,
+                'twitter' => isset($input['twitter']) ? $input['twitter'] : null,
+                'facebook' => isset($input['facebook']) ? $input['facebook'] : null,
+                'instagram' => isset($input['instagram']) ? $input['instagram'] : null,
+                'linkedin' => isset($input['linkedin']) ? $input['linkedin'] : null,
             ]);
         } catch(Exception $exception){
             return $this->sendError($exception, 500);
