@@ -23,7 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', "Views\InicioController@index");
 
-Route::get('/', "Views\InicioController@index");
+Route::get('products/search', 'ProductSearchController@index');
+
+Route::get('/', "Views\InicioController@index")->name('inicio');
 
 Route::get('/section/{section}', "Views\CategoriaController@index")->name('categoriasXseccion');
 

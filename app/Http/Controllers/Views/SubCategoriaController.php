@@ -11,12 +11,14 @@ use App\ItemCategory;
 
 class SubCategoriaController
 {
-        public function index(Section $section, Category $category) { 
+        public function index(Section $section, Category $category)
+        {
                 $itemsId = $category->items->pluck('item_category_id');
-                $items = ItemCategory::
-                whereIn('item_category_id', $itemsId) //not repeated in UserTasks
-                ->get();   
-                return view('sub_categoria', ['section'=> $section, 'category' => $category,
-                'items' => $items]);
+                $items = ItemCategory::whereIn('item_category_id', $itemsId) //not repeated in UserTasks
+                        ->get();
+                return view('sub_categoria', [
+                        'section' => $section, 'category' => $category,
+                        'items' => $items
+                ]);
         }
 }
