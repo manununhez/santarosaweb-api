@@ -92,7 +92,7 @@
                          </h4>
                          <div>
                              <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
-                             <div id="product-list" />
+                             <div id="product-list"></div>
                          </div>
                      </div>
                  </div>
