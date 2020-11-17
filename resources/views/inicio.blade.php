@@ -216,18 +216,6 @@
 
      <script type="text/javascript">
          $(document).ready(function() {
-             $('.first-button').on('click', function() {
-
-                 $('.animated-icon1').toggleClass('open');
-             });
-             $('.second-button').on('click', function() {
-
-                 $('.animated-icon2').toggleClass('open');
-             });
-             $('.third-button').on('click', function() {
-
-                 $('.animated-icon3').toggleClass('open');
-             });
              $("#sidebar").mCustomScrollbar({
                  theme: "minimal"
              });
@@ -244,6 +232,18 @@
                  $('a[aria-expanded=true]').attr('aria-expanded', 'false');
              });
 
+             $('.first-button').on('click', function() {
+
+                 $('.animated-icon1').toggleClass('open');
+             });
+             $('.second-button').on('click', function() {
+
+                 $('.animated-icon2').toggleClass('open');
+             });
+             $('.third-button').on('click', function() {
+
+                 $('.animated-icon3').toggleClass('open');
+             });
 
              //On pressing a key on "Search box" in "search.php" file. This function will be called.
              $("#myInput").keyup(function() {
@@ -275,20 +275,19 @@
                      });
                  }
              });
-
-             function clearList() {
-                 $("#product-list").html("");
-             }
-
-             function addedValuesToList(data) {
-                 html = data.map((item) => {
-                     return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
-                 })
-                 console.log(html)
-                 return '<ul>' + html + '</ul>';
-             }
-
          });
+
+         function clearList() {
+             $("#product-list").html("");
+         }
+
+         function addedValuesToList(data) {
+             html = data.map((item) => {
+                 return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+             })
+             console.log(html)
+             return '<ul>' + html + '</ul>';
+         }
      </script>
  </body>
 
