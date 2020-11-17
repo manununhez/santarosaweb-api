@@ -36,7 +36,8 @@
         }
 
         .float-container {
-            border: 3px solid #fff;
+            border-bottom: 1px solid black;
+            /* border: 3px solid #fff; */
             /* padding: 20px; */
         }
 
@@ -44,13 +45,13 @@
             width: auto;
             float: left;
             /* padding: 20px; */
-            border: 1px solid red;
+            /* border: 1px solid red; */
         }
         .float-child-right {
-            width: 85%;
+            width: auto;
             float: right;
             /* padding: 20px; */
-            border: 1px solid red;
+            /* border: 1px solid red; */
         }
     </style> 
  
