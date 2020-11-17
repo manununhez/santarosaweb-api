@@ -298,7 +298,7 @@
             
              html = data.map((item) => {
                 console.log(item.searchable.image_url);
-                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right"><p>'+item.title+'</p></div></div></a></ul>';
+                return '<ul><li><a href="'+item.url+'"><div class="float-container"><div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right"><p>'+item.title+'</p></div></div></a></li></ul>';
              })
              console.log(html)
              return html;
