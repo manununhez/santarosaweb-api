@@ -28,7 +28,33 @@
 
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
- </head>
+ 
+     <style>
+        a:link, a:visited {
+        color: black;
+        text-decoration: none;
+        }
+
+        .float-container {
+            border: 3px solid #fff;
+            /* padding: 20px; */
+        }
+
+        .float-child-left {
+            width: auto;
+            float: left;
+            /* padding: 20px; */
+            border: 1px solid red;
+        }
+        .float-child-right {
+            width: 85%;
+            float: right;
+            /* padding: 20px; */
+            border: 1px solid red;
+        }
+    </style> 
+ 
+</head>
 
  <body>
      <div class=" ">
@@ -60,13 +86,9 @@
          <!-- Page Content  -->
          <div class="container search-box">
              <div class="row">
-
                  <!-- LOGO  -->
-
                  <div class="col-sm-12">
-
                      <!-- MENU  -->
-
                      <div class="row mt-10 ">
                          <nav class="navbar navbar-expand-lg  ">
                              <div class="container-fluid">
@@ -85,14 +107,13 @@
                              </div>
                          </nav>
                      </div>
-
                      <div>
                          <h4 class="txini col-12 fadeIn1 text-center">
                              Te Ayudamos a encontrar lo que buscas en la ciudad de Santa Rosa del Aguaray!
                          </h4>
                          <div>
                              <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
-                             <div id="product-list"></div>
+                             <div class="stylesearch" id="product-list"></div>
                          </div>
                      </div>
                  </div>
@@ -249,7 +270,7 @@
                  else {
                      $.ajax({
                          type: "GET",
-                         url: "https://santarosadelaguaray.online/products/search", //"http://192.168.1.10:8000/products/search", //
+                         url: "http://192.168.1.10:8000/products/search", //"https://santarosadelaguaray.online/products/search", //
                          data: {
                              query: name
                          },
@@ -273,11 +294,12 @@
          }
 
          function addedValuesToList(data) {
+            
              html = data.map((item) => {
-                 return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left"><div class="green"><img src="https://media.multikino.pl/thumbnails/50/rc/REEzODcy/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/psykoty-poster_f59daab7c7.JPG" width="50" height="60"></img></div></div><div class="float-child-right"><div class="blue"><p>'+item.title+'</p></div></div></div></div></a></ul>';
              })
              console.log(html)
-             return '<ul>' + html + '</ul>';
+             return html;
          }
      </script>
 
