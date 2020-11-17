@@ -22,4 +22,8 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-storage/framework/sessions
+storage/framework/sessions/
+storage/framework/views/
+storage/logs
+
+public/uploads/images

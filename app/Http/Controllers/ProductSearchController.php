@@ -12,7 +12,7 @@ class ProductSearchController extends BaseController
     {
         $searchTerm = $request->input('query');
 	
-	$results = (new Search())
+	    $results = (new Search())
              ->registerModel(Product::class, ['name'])
              ->search($searchTerm);
 	
