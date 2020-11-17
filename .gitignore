@@ -23,6 +23,7 @@ Homestead.json
 .phpunit.result.cache
 
 storage/framework/sessions/
+storage/framework/cache/data/
 storage/framework/views/
 storage/logs
 
