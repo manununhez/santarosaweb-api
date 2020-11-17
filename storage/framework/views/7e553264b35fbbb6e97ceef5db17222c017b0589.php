@@ -30,12 +30,9 @@
      <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
  </head>
 
  <body>
-
      <div class=" ">
          <!-- Sidebar  -->
          <nav id="sidebar">
@@ -95,49 +92,54 @@
                          <h4 class="txini col-12 fadeIn1 text-center">
                              Te Ayudamos a encontrar lo que buscas en la ciudad de Santa Rosa del Aguaray!
                          </h4>
-                         <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
+                         <div>
+
+                             <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
+
+                             <div id="product-list">
+                             </div>
+                         </div>
                      </div>
+                 </div>
+             </div>
+
+             <div class="con tainer fadeIn3">
+                 <div id="myList" class="list-group ">
+                     <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <a class="boxhover col-sm-2 fadeIn2" href="<?php echo e(route('categoriasXseccion', $section), false); ?>">
+                         <div class="text-white  ">
+                             <h5><?php echo e($section->name, false); ?></h5>
+                         </div>
+
+                         <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
+                             <img class=" " src="<?php echo e(asset( 'uploads/'.$section->image_url ), false); ?>">
+                         </div>
+                     </a>
+                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  </div>
              </div>
          </div>
 
-         <div class="con tainer fadeIn3">
-             <div id="myList" class="list-group ">
-                 <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                 <a class="boxhover col-sm-2 fadeIn2" href="<?php echo e(route('categoriasXseccion', $section), false); ?>">
-                     <div class="text-white  ">
-                         <h5><?php echo e($section->name, false); ?></h5>
-                     </div>
-
-                     <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
-                         <img class=" " src="<?php echo e(asset( 'uploads/'.$section->image_url ), false); ?>">
-                     </div>
-                 </a>
-                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-             </div>
-         </div>
-     </div>
-
-     <footer class="footer-section">
-         <div class="container">
-             <div class="row">
-                 <div class="col-lg-3">
-                     <div class="footer-logo-item">
-                         <div class="f-logo">
-                             <a href="https://santarosadelaguaray.online/"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
-                         </div>
-                         <p>Registra tu negocio en esta ciudad Online</p>
-                         <div class="social-links">
-                             <h6>Seguinos</h6>
-                             <a href="#"><i class="fa fa-facebook"></i></a>
-                             <a href="#"><i class="fa fa-twitter"></i></a>
-                             <a href="#"><i class="fa fa-google-plus"></i></a>
-                             <a href="#"><i class="fa fa-linkedin"></i></a>
-                             <a href="#"><i class="fa fa-instagram"></i></a>
+         <footer class="footer-section">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-lg-3">
+                         <div class="footer-logo-item">
+                             <div class="f-logo">
+                                 <a href="https://santarosadelaguaray.online/"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
+                             </div>
+                             <p>Registra tu negocio en esta ciudad Online</p>
+                             <div class="social-links">
+                                 <h6>Seguinos</h6>
+                                 <a href="#"><i class="fa fa-facebook"></i></a>
+                                 <a href="#"><i class="fa fa-twitter"></i></a>
+                                 <a href="#"><i class="fa fa-google-plus"></i></a>
+                                 <a href="#"><i class="fa fa-linkedin"></i></a>
+                                 <a href="#"><i class="fa fa-instagram"></i></a>
+                             </div>
                          </div>
                      </div>
-                 </div>
-                 <!-- <div class="col-lg-3 offset-lg-1">
+                     <!-- <div class="col-lg-3 offset-lg-1">
                     <div class="footer-widget">
                         <h5>Our Blog</h5>
                         <div class="footer-blog">
@@ -156,119 +158,142 @@
                         </div>
                     </div>
                 </div>-->
-                 <div class="col-lg-2">
-                     <div class="footer-widget">
-                         <h5>Categorias</h5>
-                         <ul class="workout-program">
-                             <li><a href="#">Talleres</a></li>
-                             <li><a href="#">Supermercados</a></li>
-                             <li><a href="#">Peluquerias</a></li>
-                             <li><a href="#">Bancos</a></li>
-                             <li><a href="#">Hoteles</a></li>
-                         </ul>
+                     <div class="col-lg-2">
+                         <div class="footer-widget">
+                             <h5>Categorias</h5>
+                             <ul class="workout-program">
+                                 <li><a href="#">Talleres</a></li>
+                                 <li><a href="#">Supermercados</a></li>
+                                 <li><a href="#">Peluquerias</a></li>
+                                 <li><a href="#">Bancos</a></li>
+                                 <li><a href="#">Hoteles</a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="footer-widget">
-                         <h5>Información</h5>
-                         <ul class="footer-info">
-                             <li>
-                                 <i class="fa fa-phone"></i>
-                                 <span>Teléfono</span>
-                                 +595981 102 724
-                             </li>
-                             <li>
-                                 <i class="fa fa-envelope-o"></i>
-                                 <span>Email:</span>
-                                 hola@santarosadelaguaray.online
-                             </li>
-                             <li>
-                                 <i class="fa fa-map-marker"></i>
-                                 <span>direccíon</span>
-                                 Stella Marys,ruta11 km 224, Santa Rosa Del Aguaray
-                             </li>
-                         </ul>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="copyright-text">
-             <div class="container">
-                 <div class="row">
-                     <div class="col-lg-12 text-center">
-                         <div class="ct-inside">
-                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                             Copyright ©<script>
-                                 document.write(new Date().getFullYear());
-                             </script>2020 Todos los derechos Reservados | <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://pauldefault.com" target="_blank">PaulDefault</a>
-                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     <div class="col-lg-3">
+                         <div class="footer-widget">
+                             <h5>Información</h5>
+                             <ul class="footer-info">
+                                 <li>
+                                     <i class="fa fa-phone"></i>
+                                     <span>Teléfono</span>
+                                     +595981 102 724
+                                 </li>
+                                 <li>
+                                     <i class="fa fa-envelope-o"></i>
+                                     <span>Email:</span>
+                                     hola@santarosadelaguaray.online
+                                 </li>
+                                 <li>
+                                     <i class="fa fa-map-marker"></i>
+                                     <span>direccíon</span>
+                                     Stella Marys,ruta11 km 224, Santa Rosa Del Aguaray
+                                 </li>
+                             </ul>
                          </div>
                      </div>
                  </div>
              </div>
-         </div>
-     </footer>
+             <div class="copyright-text">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-lg-12 text-center">
+                             <div class="ct-inside">
+                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                 Copyright ©<script>
+                                     document.write(new Date().getFullYear());
+                                 </script>2020 Todos los derechos Reservados | <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://pauldefault.com" target="_blank">PaulDefault</a>
+                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </footer>
+         <!-- jQuery CDN - Slim version (=without AJAX) -->
+         <script src="<?php echo e(asset('assets/js/jquery-3.3.1.slim.min.js'), false); ?>"></script>
+         <!-- Popper.JS -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+         <!-- Bootstrap JS -->
+         <script src="<?php echo e(asset('assets/js/bootstrap.min.js'), false); ?>"></script>
+         <!-- jQuery Custom Scroller CDN -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
+         <script type="text/javascript">
+             $(document).ready(function() {
+                 $('.first-button').on('click', function() {
 
-
-
-     <!-- jQuery CDN - Slim version (=without AJAX) -->
-     <script src="<?php echo e(asset('assets/js/jquery-3.3.1.slim.min.js'), false); ?>"></script>
-     <!-- Popper.JS -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-     <!-- Bootstrap JS -->
-     <script src="<?php echo e(asset('assets/js/bootstrap.min.js'), false); ?>"></script>
-     <!-- jQuery Custom Scroller CDN -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-     <script type="text/javascript">
-         $(document).ready(function() {
-             $("#sidebar").mCustomScrollbar({
-                 theme: "minimal"
-             });
-
-             $('#dismiss, .overlay').on('click', function() {
-                 $('#sidebar').removeClass('active');
-                 $('.overlay').removeClass('active');
-             });
-
-             $('#sidebarCollapse').on('click', function() {
-                 $('#sidebar').addClass('active');
-                 $('.overlay').addClass('active');
-                 $('.collapse.in').toggleClass('in');
-                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-             });
-         });
-     </script>
-
-     <script>
-         $(document).ready(function() {
-             $("#myInput").keyup(function() {
-                 let value = $(this).val().toLowerCase();
-                 $("#myList a").filter(function() {
-                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                     $('.animated-icon1').toggleClass('open');
                  });
+                 $('.second-button').on('click', function() {
+
+                     $('.animated-icon2').toggleClass('open');
+                 });
+                 $('.third-button').on('click', function() {
+
+                     $('.animated-icon3').toggleClass('open');
+                 });
+                 $("#sidebar").mCustomScrollbar({
+                     theme: "minimal"
+                 });
+
+                 $('#dismiss, .overlay').on('click', function() {
+                     $('#sidebar').removeClass('active');
+                     $('.overlay').removeClass('active');
+                 });
+
+                 $('#sidebarCollapse').on('click', function() {
+                     $('#sidebar').addClass('active');
+                     $('.overlay').addClass('active');
+                     $('.collapse.in').toggleClass('in');
+                     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                 });
+
+
+                 //On pressing a key on "Search box" in "search.php" file. This function will be called.
+                 $("#myInput").keyup(function() {
+                     //Assigning search box value to javascript variable named as "name".
+                     var name = $('#myInput').val();
+                     //Validating, if "name" is empty.
+                     if (name == "") {
+                         //Assigning empty value to "display" div in "search.php" file.
+                         clearList();
+                     }
+                     //If name is not empty.
+                     else {
+                         $.ajax({
+                             type: "GET",
+                             url: "https://santarosadelaguaray.online/products/search" //"http://192.168.1.10:8000/products/search", //
+                             data: {
+                                 query: name
+                             },
+                             success: function(data) {
+                                 //Assigning result to "display" div in "search.php" file.
+
+                                 html = addedValuesToList(data.data);
+                                 $("#product-list").html(html).show();
+                                 // console.log(data.data)
+                             },
+                             error: function() {
+                                 clearList();
+                             }
+                         });
+                     }
+                 });
+
+                 function clearList() {
+                     $("#product-list").html("");
+                 }
+
+                 function addedValuesToList(data) {
+                     html = data.map((item) => {
+                         return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+                     })
+                     console.log(html)
+                     return '<ul>' + html + '</ul>';
+                 }
+
              });
-         });
-     </script>
-
-     <script>
-         $(document).ready(function() {
-
-             $('.first-button').on('click', function() {
-
-                 $('.animated-icon1').toggleClass('open');
-             });
-             $('.second-button').on('click', function() {
-
-                 $('.animated-icon2').toggleClass('open');
-             });
-             $('.third-button').on('click', function() {
-
-                 $('.animated-icon3').toggleClass('open');
-             });
-         });
-     </script>
+         </script>
  </body>
-
  </html><?php /**PATH /var/www/santarosaweb-api/resources/views/inicio.blade.php ENDPATH**/ ?>

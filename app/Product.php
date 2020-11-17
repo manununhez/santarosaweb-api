@@ -22,11 +22,27 @@ class Product extends Model implements Searchable
 
      public function getSearchResult(): SearchResult
      {
-         $itemCategory = $this->itemCategoryProduct->categoryItem;
-         $category = $itemCategory->categoryItemCategory->category;
-         $section = $category->categorySection->section;
+         $this->makeHidden(["created_at", "updated_at"]);
 
-         $url = url("/section/".$section->section_id."/category/".$category->category_id."/item/".$itemCategory->item_category_id); //inicio
+         $itemCategoryProduct = $this->itemCategoryProduct;
+         $itemCategoryProduct->makeHidden(["id", "created_at", "updated_at", "item_category_id", "product_id"]);
+
+         $itemCategory = $itemCategoryProduct->categoryItem;
+         $itemCategory->makeHidden(["created_at", "updated_at"]);
+
+         $categoryItemCategory = $itemCategory->categoryItemCategory;
+         $categoryItemCategory->makeHidden(["id", "created_at", "updated_at", "category_id", "item_category_id"]);
+
+         $category = $categoryItemCategory->category;
+         $category->makeHidden(["created_at", "updated_at"]);
+
+         $categorySection = $category->categorySection;
+         $categorySection->makeHidden(["id", "created_at", "updated_at", "section_id", "category_id"]);
+
+         $section = $categorySection->section;
+         $section->makeHidden(["created_at", "updated_at"]);
+
+         $url = route("productosXsubCategoria", [$section, $category, $itemCategory]); //inicio
 
          return new SearchResult(
              $this,
