@@ -36,7 +36,7 @@
         }
 
         .float-container {
-            border-bottom: 1px solid black;
+            /* border-bottom: 1px solid black; */
             /* border: 3px solid #fff; */
             /* padding: 20px; */
         }
@@ -297,7 +297,7 @@
          function addedValuesToList(data) {
             
              html = data.map((item) => {
-                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left"><div class="green"><img src="https://media.multikino.pl/thumbnails/50/rc/REEzODcy/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/psykoty-poster_f59daab7c7.JPG" width="50" height="60"></img></div></div><div class="float-child-right"><div class="blue"><p>'+item.title+'</p></div></div></div></div></a></ul>';
+                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left"><img src="https://media.multikino.pl/thumbnails/50/rc/REEzODcy/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/psykoty-poster_f59daab7c7.JPG" width="50" height="60"></img></div><div class="float-child-right"><p>'+item.title+'</p></div></div></div></a></ul>';
              })
              console.log(html)
              return html;
