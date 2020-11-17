@@ -263,7 +263,7 @@
                      else {
                          $.ajax({
                              type: "GET",
-                             url: "https://santarosadelaguaray.online/products/search" //"http://192.168.1.10:8000/products/search", //
+                             url: "https://santarosadelaguaray.online/products/search", //"http://192.168.1.10:8000/products/search", //
                              data: {
                                  query: name
                              },
