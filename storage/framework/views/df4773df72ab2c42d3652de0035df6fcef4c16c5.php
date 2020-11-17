@@ -96,8 +96,7 @@
                 <h2 class="animated fadeInDown"><?php echo e($item->title_slider_1, false); ?></h2>
                 <p class="animated fadeInUp"><?php echo e($item->description_slider_1, false); ?></p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Nuestro menú</a>
-                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Reservar</a>
+                  <a href="<?php echo e($item->btn_link_slider_1, false); ?>" class="btn-menu animated fadeIn scrollto"><?php echo e($item->btn_text_slider_1, false); ?></a>
                 </div>
               </div>
             </div>
@@ -110,8 +109,8 @@
                 <h2 class="animated fadeInDown"><?php echo e($item->title_slider_2, false); ?></h2>
                 <p class="animated fadeInUp"><?php echo e($item->description_slider_2, false); ?></p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Pizza</a>
-                  <a href="#book-a-table" class="btn-book animated fadeIn scrollto">Hacer pedido</a>
+                <a href="<?php echo e($item->btn_link_slider_2, false); ?>" class="btn-menu animated fadeIn scrollto"><?php echo e($item->btn_text_slider_2, false); ?></a>
+
                 </div>
               </div>
             </div>
@@ -124,8 +123,8 @@
                 <h2 class="animated fadeInDown"><?php echo e($item->title_slider_3, false); ?></h2>
                 <p class="animated fadeInUp"><?php echo e($item->description_slider_3, false); ?></p>
                 <div>
-                  <a href="#menu" class="btn-menu animated fadeIn scrollto">Menu Buffet</a>
-                   
+                <a href="<?php echo e($item->btn_link_slider_3, false); ?>" class="btn-menu animated fadeIn scrollto"><?php echo e($item->btn_text_slider_3, false); ?></a>
+
                 </div>
               </div>
             </div>
