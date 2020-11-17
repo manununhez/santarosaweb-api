@@ -10,14 +10,14 @@ use App\Category;
 use App\ItemCategory;
 use App\Product;
 
-class ProductosController
-{
-        public function index(Section $section, Category $category, ItemCategory $item) { 
+class ProductosController{
+        public function index(Section $section, Category $category, ItemCategory $item){
                 $productsId = $item->products->pluck('product_id');
-                $products = Product::
-                whereIn('product_id',$productsId) //not repeated in UserTasks
-                ->get();
-                return view('productos', ['section'=> $section, 'category' => $category,
-                'item' => $item, 'products' =>$products]);
+                $products = Product::whereIn('product_id', $productsId) //not repeated in UserTasks
+                                ->get();
+                return view('productos', [
+                        'section' => $section, 'category' => $category,
+                        'item' => $item, 'products' => $products
+                ]);
         }
 }

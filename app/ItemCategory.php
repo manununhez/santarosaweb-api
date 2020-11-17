@@ -65,4 +65,10 @@ class ItemCategory extends Model
         // return $this->belongsToMany(Category::class, 'category_sections');//get section per categories, without pagination
         return $this->hasMany(ItemCategoryProduct::class, 'item_category_id');//get section per categories, with pagination
     }
+
+    public function categoryItemCategory()
+    {
+        // return $this->belongsToMany(Category::class, 'category_sections');//get section per categories, without pagination
+        return $this->belongsTo(CategoryItemCategory::class, 'item_category_id', 'item_category_id'); //get section per categories, with pagination
+    }
 }
