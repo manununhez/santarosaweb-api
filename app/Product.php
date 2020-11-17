@@ -20,18 +20,22 @@ class Product extends Model implements Searchable
         'product_id', 'name', 'description', 'tag', 'image_url', 'image_url_2', 'image_url_3', 'price'
     ];
 
-    public function getSearchResult(): SearchResult
-    {
-        $url = route('inicio', $this->name); //inicio
+     public function getSearchResult(): SearchResult
+     {
+         $itemCategory = $this->itemCategoryProduct->categoryItem;
+         $category = $itemCategory->categoryItemCategory->category;
+         $section = $category->categorySection->section;
 
-        return new SearchResult(
-            $this,
-            $this->name,
-            $url
-        );
+         $url = url("/section/".$section->section_id."/category/".$category->category_id."/item/".$itemCategory->item_category_id); //inicio
+
+         return new SearchResult(
+             $this,
+             $this->name,
+             $url
+         );
     }
 
-    public function itemCategoryProduct()
+	public function itemCategoryProduct()
     {
         // return $this->belongsToMany(Category::class, 'category_sections');//get section per categories, without pagination
         return $this->belongsTo(ItemCategoryProduct::class, 'product_id', 'product_id'); //get section per categories, with pagination
