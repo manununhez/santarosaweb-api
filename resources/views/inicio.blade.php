@@ -297,7 +297,8 @@
          function addedValuesToList(data) {
             
              html = data.map((item) => {
-                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left"><img src="https://media.multikino.pl/thumbnails/50/rc/REEzODcy/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/psykoty-poster_f59daab7c7.JPG" width="50" height="60"></img></div><div class="float-child-right"><p>'+item.title+'</p></div></div></div></a></ul>';
+                console.log(item.searchable.image_url);
+                return '<ul><a href="'+item.url+'"><div class="float-container"><div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right"><p>'+item.title+'</p></div></div></a></ul>';
              })
              console.log(html)
              return html;
