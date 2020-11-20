@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class ItemCategory extends Model
+class ItemCategory extends Model implements Searchable
 {
 
     protected $table = 'item_categories';
@@ -60,6 +62,40 @@ class ItemCategory extends Model
         'info_hours_opening',
         'info_hours_closing'
     ];
+
+    public function getSearchResult(): SearchResult{
+        $values = collect();
+        foreach ($this->products as $product) {
+            // $product->makeHidden(["id", "created_at", "updated_at", "item_category_id", "product_id"]);
+            $tmp = $product->product;
+            // $tmp->makeHidden(["created_at", "updated_at"]);
+            $values->push($tmp);
+        }
+
+        
+        $categoryItemCategory = $this->categoryItemCategory;
+         $categoryItemCategory->makeHidden(["id", "created_at", "updated_at", "category_id", "item_category_id"]);
+
+         $category = $categoryItemCategory->category;
+         $category->makeHidden(["created_at", "updated_at"]);
+
+         $categorySection = $category->categorySection;
+         $categorySection->makeHidden(["id", "created_at", "updated_at", "section_id", "category_id"]);
+
+         $section = $categorySection->section;
+         $section->makeHidden(["created_at", "updated_at"]);
+
+         $this->makeHidden(["created_at", "updated_at"]);
+         
+        $url = route("productosXsubCategoria", [$section, $category, $this]); //inicio
+
+    //    $url = route("inicio", $this->name); //inicio
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+   }
 
     public function products(){
         // return $this->belongsToMany(Category::class, 'category_sections');//get section per categories, without pagination

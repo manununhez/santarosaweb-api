@@ -20,8 +20,8 @@ class Product extends Model implements Searchable
         'product_id', 'name', 'description', 'tag', 'image_url', 'image_url_2', 'image_url_3', 'price'
     ];
 
-     public function getSearchResult(): SearchResult
-     {
+    public function getSearchResult(): SearchResult{
+
          $this->makeHidden(["created_at", "updated_at"]);
 
          $itemCategoryProduct = $this->itemCategoryProduct;
@@ -42,8 +42,10 @@ class Product extends Model implements Searchable
          $section = $categorySection->section;
          $section->makeHidden(["created_at", "updated_at"]);
 
+         $this->makeHidden(["created_at", "updated_at"]);
+         
          $url = route("productosXsubCategoria", [$section, $category, $itemCategory]); //inicio
-
+        // $url = route("inicio", $this->name); //inicio
          return new SearchResult(
              $this,
              $this->name,

@@ -271,7 +271,7 @@
                  else {
                      $.ajax({
                          type: "GET",
-                         url: "https://santarosadelaguaray.online/products/search", //"http://192.168.1.10:8000/products/search", //
+                         url: "https://santarosadelaguaray.online/products/search", //"http://192.168.1.10:8000/products/search", // 
                          data: {
                              query: name
                          },
@@ -295,12 +295,38 @@
          }
 
          function addedValuesToList(data) {
-            
              html = data.map((item) => {
-                console.log(item.searchable.image_url);
-                return '<ul><li><a href="'+item.url+'"><div class="float-container"><div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right"><p>'+item.title+'</p></div></div></a></li></ul>';
+                if(item.type === "products"){
+                    return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
+                    '<div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right">'+
+                    '<p>'+item.title+'</p></div></div></a></li></ul>';
+                } else if(item.type === "item_categories"){
+                    products = item.searchable.products.map((subItem) =>{
+                        var product = subItem.product;
+                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
+                        '<div class="float-child-left">'+product.image_url+'</div><div class="float-child-right">'+
+                        '<p>'+product.name+'</p></div></div></a></li></ul>';
+                    })
+                    return products.join("");
+                } else if(item.type === "categories"){
+                    itemCategories = item.searchable.items.map((subItem) =>{
+                        var itemCategory = subItem.category_item
+                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
+                        '<div class="float-child-left">'+itemCategory.image_url+'</div><div class="float-child-right">'+
+                        '<p>'+itemCategory.name+'</p></div></div></a></li></ul>';
+                    })
+
+                    return itemCategories.join("");
+                } else if(item.type === "sections"){
+                    categories = item.searchable.categories.map((subItem) =>{
+                        var category = subItem.category
+                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
+                        '<div class="float-child-left">'+category.image_url+'</div><div class="float-child-right">'+
+                        '<p>'+category.name+'</p></div></div></a></li></ul>';
+                    })
+                    return categories.join("");
+                }
              })
-             console.log(html)
              return html;
          }
      </script>
