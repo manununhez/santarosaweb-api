@@ -309,16 +309,16 @@
              html = data.map((item) => {
                  if (item.type === "products") {
                      console.log(item.searchable.image_url);
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + ')}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + '")}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "item_categories") {
                      console.log(item.searchable.image_url_logo);
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url_logo + ')}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url_logo + '")}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "categories") {
                      console.log(item.searchable.image_url);
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + ')}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + '")}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "sections") {
                      console.log(item.searchable.image_url);
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + ')}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("uploads/' + item.searchable.image_url + '")}}></div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  }
              })
              return html;
