@@ -28,10 +28,36 @@
 
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
- 
-      
- 
-</head>
+
+     <style>
+         a:link,
+         a:visited {
+             color: black;
+             text-decoration: none;
+         }
+
+         .float-container {
+             /* border-bottom: 1px solid black; */
+             /* border: 3px solid #fff; */
+             /* padding: 20px; */
+         }
+
+         .float-child-left {
+             width: auto;
+             float: left;
+             /* padding: 20px; */
+             /* border: 1px solid red; */
+         }
+
+         .float-child-right {
+             width: auto;
+             float: right;
+             /* padding: 20px; */
+             /* border: 1px solid red; */
+         }
+     </style>
+
+ </head>
 
  <body>
      <div class=" ">
@@ -93,11 +119,11 @@
                              <div class="stylesearch" id="product-list"></div>
                          </div>
                      </div>
-                            <div class="row col-sm-2" style="float: left; text-align: center !important;">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="float: left;width: 92%;text-align: center;margin: 0 auto;font-size: 15px !important;color: #ef5a28;margin-top: 8%;">
-                          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-                        </svg>                      
-                            <h4 class=" fadeIn1 text-center" style=" margin: 0 auto; margin-top: 2%; font-size: 120%; color: #989898;">
+                     <div class="row col-sm-2" style="float: left; text-align: center !important;">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="float: left;width: 92%;text-align: center;margin: 0 auto;font-size: 15px !important;color: #ef5a28;margin-top: 8%;">
+                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+                         </svg>
+                         <h4 class=" fadeIn1 text-center" style=" margin: 0 auto; margin-top: 2%; font-size: 120%; color: #989898;">
                              Activa tu ubicación<br>Descubri tu alrededor
                          </h4>
                      </div>
@@ -281,36 +307,23 @@
 
          function addedValuesToList(data) {
              html = data.map((item) => {
-                if(item.type === "products"){
-                    return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
-                    '<div class="float-child-left">'+item.searchable.image_url+'</div><div class="float-child-right">'+
-                    '<p>'+item.title+'</p></div></div></a></li></ul>';
-                } else if(item.type === "item_categories"){
-                    products = item.searchable.products.map((subItem) =>{
-                        var product = subItem.product;
-                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
-                        '<div class="float-child-left">'+product.image_url+'</div><div class="float-child-right">'+
-                        '<p>'+product.name+'</p></div></div></a></li></ul>';
-                    })
-                    return products.join("");
-                } else if(item.type === "categories"){
-                    itemCategories = item.searchable.items.map((subItem) =>{
-                        var itemCategory = subItem.category_item
-                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
-                        '<div class="float-child-left">'+itemCategory.image_url+'</div><div class="float-child-right">'+
-                        '<p>'+itemCategory.name+'</p></div></div></a></li></ul>';
-                    })
-
-                    return itemCategories.join("");
-                } else if(item.type === "sections"){
-                    categories = item.searchable.categories.map((subItem) =>{
-                        var category = subItem.category
-                        return '<ul><li>'+item.type+'<a href="'+item.url+'"><div class="float-container">'+
-                        '<div class="float-child-left">'+category.image_url+'</div><div class="float-child-right">'+
-                        '<p>'+category.name+'</p></div></div></a></li></ul>';
-                    })
-                    return categories.join("");
-                }
+                 if (item.type === "products") {
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' +
+                         '<div class="float-child-left">' + item.searchable.image_url + '</div><div class="float-child-right">' +
+                         '<p>' + item.title + '</p></div></div></a></li></ul>';
+                 } else if (item.type === "item_categories") {
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' +
+                         '<div class="float-child-left">' + item.searchable.image_url_logo + '</div><div class="float-child-right">' +
+                         '<p>' + item.title + '</p></div></div></a></li></ul>';
+                 } else if (item.type === "categories") {
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' +
+                         '<div class="float-child-left">' + item.searchable.image_url + '</div><div class="float-child-right">' +
+                         '<p>' + item.title + '</p></div></div></a></li></ul>';
+                 } else if (item.type === "sections") {
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' +
+                         '<div class="float-child-left">' + item.searchable.image_url + '</div><div class="float-child-right">' +
+                         '<p>' + item.title + '</p></div></div></a></li></ul>';
+                 }
              })
              return html;
          }
