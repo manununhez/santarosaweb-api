@@ -308,13 +308,17 @@
          function addedValuesToList(data) {
              html = data.map((item) => {
                  if (item.type === "products") {
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset(upload/' + item.searchable.image_url + ')}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     console.log(item.searchable.image_url);
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("upload/' + item.searchable.image_url + '")}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "item_categories") {
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset(upload/' + item.searchable.image_url_logo + ')}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     console.log(item.searchable.image_url_logo);
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("upload/' + item.searchable.image_url_logo + '")}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "categories") {
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset(upload/' + item.searchable.image_url + ')}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     console.log(item.searchable.image_url);
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("upload/' + item.searchable.image_url + '")}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  } else if (item.type === "sections") {
-                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset(upload/' + item.searchable.image_url + ')}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
+                     console.log(item.searchable.image_url);
+                     return '<ul><li>' + item.type + '<a href="' + item.url + '"><div class="float-container">' + '<div class="float-child-left"><img src={{asset("upload/' + item.searchable.image_url + '")}}</div><div class="float-child-right"><p>' + item.title + '</p></div></div></a></li></ul>';
                  }
              })
              return html;
