@@ -38,12 +38,12 @@
 
 <body> 
         
-<div class="container">
+<!-- <div class="container top_header">
 
 
 
   <h5><?php echo e($section->name, false); ?> / <?php echo e($category->name, false); ?> / <?php echo e($item->name, false); ?></h5>
-</div>
+</div> -->
  
  <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">

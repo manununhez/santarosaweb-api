@@ -29,31 +29,7 @@
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
  
-     <style>
-        a:link, a:visited {
-        color: black;
-        text-decoration: none;
-        }
-
-        .float-container {
-            /* border-bottom: 1px solid black; */
-            /* border: 3px solid #fff; */
-            /* padding: 20px; */
-        }
-
-        .float-child-left {
-            width: auto;
-            float: left;
-            /* padding: 20px; */
-            /* border: 1px solid red; */
-        }
-        .float-child-right {
-            width: auto;
-            float: right;
-            /* padding: 20px; */
-            /* border: 1px solid red; */
-        }
-    </style> 
+      
  
 </head>
 
@@ -85,12 +61,12 @@
          <div class="overlay"></div>
 
          <!-- Page Content  -->
-         <div class="container search-box">
+         <div class="containe search-box">
              <div class="row">
                  <!-- LOGO  -->
                  <div class="col-sm-12">
                      <!-- MENU  -->
-                     <div class="row mt-10 ">
+                     <div class="row col-sm-3 " style=" float: left;">
                          <nav class="navbar navbar-expand-lg  ">
                              <div class="container-fluid">
                                  <div class="logocontent">
@@ -102,25 +78,34 @@
 
                                      <div class="f-left">
                                          <a href="https://santarosadelaguaray.online/">
-                                             <img class=" fadeIn1 logo m-top-20" src="{{asset('assets/img/logo.png')}}"></a>
+                                             <img class=" fadeIn1 logo m-top-20" src="https://santarosadelaguaray.online/assets/img/logo.png"></a>
                                      </div>
                                  </div>
                              </div>
                          </nav>
                      </div>
-                     <div>
-                         <h4 class="txini col-12 fadeIn1 text-center">
+                     <div class="row col-sm-6" style=" float: left;">
+                         <h4 class="txini col-12 fadeIn1 text-center" style="color: #f9ad40;">
                              Te Ayudamos a encontrar lo que buscas en la ciudad de Santa Rosa del Aguaray!
                          </h4>
-                         <div>
-                             <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
+                         <div class="txini col-12 fadeIn1 text-center" style="margin-top: 0; margin-bottom: 4%;">
+                             <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack col-12   stylesearch">
                              <div class="stylesearch" id="product-list"></div>
                          </div>
+                     </div>
+                            <div class="row col-sm-2" style="float: left; text-align: center !important;">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="float: left;width: 92%;text-align: center;margin: 0 auto;font-size: 15px !important;color: #ef5a28;margin-top: 8%;">
+                          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+                        </svg>                      
+                            <h4 class=" fadeIn1 text-center" style=" margin: 0 auto; margin-top: 2%; font-size: 120%; color: #989898;">
+                             Activa tu ubicación<br>Descubri tu alrededor
+                         </h4>
                      </div>
                  </div>
              </div>
          </div>
-         <div class="container fadeIn3">
+
+         <div class="col-sm-12 fl fadeIn3">
              <div id="myList" class="list-group ">
                  @foreach ($sections as $section)
                  <a class="boxhover col-sm-2 fadeIn2" href="{{route('categoriasXseccion', $section)}}">

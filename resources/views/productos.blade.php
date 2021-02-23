@@ -38,12 +38,12 @@
 
 <body> 
         
-<div class="container">
+<!-- <div class="container top_header">
 
 
 
   <h5>{{ $section->name }} / {{ $category->name }} / {{ $item->name }}</h5>
-</div>
+</div> -->
  
  <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">

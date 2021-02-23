@@ -10,18 +10,18 @@
 
      <title>S.R.Online</title>
      <!-- Favicons -->
-     <link href="<?php echo e(asset('assets/img/favicon.png'), false); ?>" rel="icon">
-     <link href="<?php echo e(asset('assets/img/apple-touch-icon.png'), false); ?>" rel="apple-touch-icon">
+     <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
 
      <!-- Bootstrap CSS CDN -->
-     <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css'), false); ?>">
+     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 
-     <link href="<?php echo e(asset('assets/icofont/icofont.min.css'), false); ?>" rel="stylesheet">
+     <link href="{{asset('assets/icofont/icofont.min.css')}}" rel="stylesheet">
 
 
      <!-- Scrollbar Custom CSS -->
-     <link rel="stylesheet" href="<?php echo e(asset('assets/css/jquery.mCustomScrollbar.min.css'), false); ?>">
+     <link rel="stylesheet" href="{{asset('assets/css/jquery.mCustomScrollbar.min.css')}}">
 
      <!-- google fonts -->
      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -29,7 +29,31 @@
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
  
-      
+     <style>
+        a:link, a:visited {
+        color: black;
+        text-decoration: none;
+        }
+
+        .float-container {
+            /* border-bottom: 1px solid black; */
+            /* border: 3px solid #fff; */
+            /* padding: 20px; */
+        }
+
+        .float-child-left {
+            width: auto;
+            float: left;
+            /* padding: 20px; */
+            /* border: 1px solid red; */
+        }
+        .float-child-right {
+            width: auto;
+            float: right;
+            /* padding: 20px; */
+            /* border: 1px solid red; */
+        }
+    </style> 
  
 </head>
 
@@ -43,17 +67,17 @@
 
              <div class="sidebar-header">
                  <a href="index.html">
-                     <img class=" fadeIn1 logo m-top-20" src="<?php echo e(asset('assets/img/logo.png'), false); ?>">
+                     <img class=" fadeIn1 logo m-top-20" src="{{asset('assets/img/logo.png')}}">
                  </a>
 
              </div>
 
              <ul class="list-unstyled components">
-                 <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 @foreach ($sections as $section)
                  <li>
-                     <a href="#"><?php echo e($section->name, false); ?></a>
+                     <a href="#">{{ $section->name }}</a>
                  </li>
-                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 @endforeach
              </ul>
 
          </nav>
@@ -61,12 +85,12 @@
          <div class="overlay"></div>
 
          <!-- Page Content  -->
-         <div class="containe search-box">
+         <div class="container search-box">
              <div class="row">
                  <!-- LOGO  -->
                  <div class="col-sm-12">
                      <!-- MENU  -->
-                     <div class="row col-sm-3 " style=" float: left;">
+                     <div class="row mt-10 ">
                          <nav class="navbar navbar-expand-lg  ">
                              <div class="container-fluid">
                                  <div class="logocontent">
@@ -78,46 +102,37 @@
 
                                      <div class="f-left">
                                          <a href="https://santarosadelaguaray.online/">
-                                             <img class=" fadeIn1 logo m-top-20" src="https://santarosadelaguaray.online/assets/img/logo.png"></a>
+                                             <img class=" fadeIn1 logo m-top-20" src="{{asset('assets/img/logo.png')}}"></a>
                                      </div>
                                  </div>
                              </div>
                          </nav>
                      </div>
-                     <div class="row col-sm-6" style=" float: left;">
-                         <h4 class="txini col-12 fadeIn1 text-center" style="color: #f9ad40;">
+                     <div>
+                         <h4 class="txini col-12 fadeIn1 text-center">
                              Te Ayudamos a encontrar lo que buscas en la ciudad de Santa Rosa del Aguaray!
                          </h4>
-                         <div class="txini col-12 fadeIn1 text-center" style="margin-top: 0; margin-bottom: 4%;">
-                             <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack col-12   stylesearch">
+                         <div>
+                             <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack   stylesearch">
                              <div class="stylesearch" id="product-list"></div>
                          </div>
-                     </div>
-                            <div class="row col-sm-2" style="float: left; text-align: center !important;">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="float: left;width: 92%;text-align: center;margin: 0 auto;font-size: 15px !important;color: #ef5a28;margin-top: 8%;">
-                          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
-                        </svg>                      
-                            <h4 class=" fadeIn1 text-center" style=" margin: 0 auto; margin-top: 2%; font-size: 120%; color: #989898;">
-                             Activa tu ubicación<br>Descubri tu alrededor
-                         </h4>
                      </div>
                  </div>
              </div>
          </div>
-
-         <div class="col-sm-12 fl fadeIn3">
+         <div class="  fadeIn3">
              <div id="myList" class="list-group ">
-                 <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                 <a class="boxhover col-sm-2 fadeIn2" href="<?php echo e(route('categoriasXseccion', $section), false); ?>">
+                 @foreach ($sections as $section)
+                 <a class="boxhover col-sm-2 fadeIn2" href="{{route('categoriasXseccion', $section)}}">
                      <div class="text-white  ">
-                         <h5><?php echo e($section->name, false); ?></h5>
+                         <h5>{{ $section->name }}</h5>
                      </div>
 
                      <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
-                         <img class=" " src="<?php echo e(asset( 'uploads/'.$section->image_url ), false); ?>">
+                         <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
                      </div>
                  </a>
-                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 @endforeach
              </div>
          </div>
      </div>
@@ -128,7 +143,7 @@
                  <div class="col-lg-3">
                      <div class="footer-logo-item">
                          <div class="f-logo">
-                             <a href="https://santarosadelaguaray.online/"><img src="<?php echo e(asset('assets/img/logo.png'), false); ?>" alt=""></a>
+                             <a href="https://santarosadelaguaray.online/"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>
                          </div>
                          <p>Registra tu negocio en esta ciudad Online</p>
                          <div class="social-links">
@@ -217,7 +232,7 @@
      <!-- Popper.JS -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
      <!-- Bootstrap JS -->
-     <script src="<?php echo e(asset('assets/js/bootstrap.min.js'), false); ?>"></script>
+     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
      <!-- jQuery Custom Scroller CDN -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
@@ -335,4 +350,4 @@
      </script>
  </body>
 
- </html><?php /**PATH /var/www/santarosaweb-api/resources/views/inicio.blade.php ENDPATH**/ ?>
+ </html>
