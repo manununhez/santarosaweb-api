@@ -92,7 +92,7 @@
                  <!-- LOGO  -->
                  <div class="col-sm-12">
                      <!-- MENU  -->
-                     <div class="row col-sm-3 " style=" float: left;">
+                     <div class="row col-sm-3 fl" >
                          <nav class="navbar navbar-expand-lg  ">
                              <div class="container-fluid">
                                  <div class="logocontent">
@@ -110,13 +110,13 @@
                              </div>
                          </nav>
                      </div>
-                     <div class="row col-sm-6" style=" float: left;">
+                     <div class="row col-sm-6 fl" >
                          <h4 class="txini col-12 fadeIn1 text-center" style="color: #f9ad40;">
                              Te Ayudamos a encontrar lo que buscas en la ciudad de Santa Rosa del Aguaray!
                          </h4>
-                         <div class="txini col-12 fadeIn1 text-center" style="margin-top: 0; margin-bottom: 4%;">
+                         <div class="txini col-9 fadeIn1 text-center">
                              <input id="myInput" type="text" placeholder="Qué estás buscando?" class="input-field fadeIn2 inputblack col-12   stylesearch">
-                             <div class="stylesearch" id="product-list"></div>
+                             <div class="stylesearch product-list-style fadeIn1" id="product-list"></div>
                          </div>
                      </div>
                      <div class="row col-sm-2" style="float: left; text-align: center !important;">
@@ -139,7 +139,7 @@
                          <h5>{{ $section->name }}</h5>
                      </div>
 
-                     <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius">
+                     <div class=" img-hover-zoom img-hover-zoom--basic text-center border_radius ">
                          <img class=" " src="{{asset( 'uploads/'.$section->image_url ) }}">
                      </div>
                  </a>

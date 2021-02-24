@@ -916,10 +916,10 @@ pre code {
 }
 
 
+/*RESPONSIVE*/
 @media (max-width:320px)   {
-	 	/* 
 
-	  body {background:orange;}  */
+	 /* body {background:orange;}  */
 
 	  .banner {display: none;}
 	  .temperatura {display: none;}
@@ -1106,7 +1106,7 @@ pre code {
 	 
 }
 
-@media (max-width:575px) and (min-width: 321px){
+@media (max-width:576px) and (min-width: 321px){
 			/*body {background:pink;}  */
 			.banner {display: none;}
 			.temperatura {display: none;}
@@ -1147,7 +1147,7 @@ pre code {
 }
 
 @media 	(min-width:576px)  {
-	/* rojo
+	/* fuxia oscuro
 	body {background: #ff6363;}*/
 	
 
@@ -1338,7 +1338,7 @@ pre code {
 }
 
 @media (min-width:992px) {
-	 /*body { background: green;}*/
+	/* body { background: green;}*/
 	 	.col-lg {
 		-ms-flex-preferred-size: 0;		flex-basis: 0;		-ms-flex-positive: 1;		flex-grow: 1;		max-width: 100%	}
 			.row-cols-lg-1>* {		-ms-flex: 0 0 100%;		flex: 0 0 100%;		max-width: 100%	}
@@ -1396,7 +1396,7 @@ pre code {
 }
 
 @media (min-width:1200px) {
-	.boxhover {    width: 14%; }
+	.boxhover {    width: 16.45%; }
 	 	
 	/* body {background: yellow;}*/
 	.col-xl {		-ms-flex-preferred-size: 0;		flex-basis: 0;		-ms-flex-positive: 1;		flex-grow: 1;		max-width: 100%	}
@@ -10698,10 +10698,11 @@ a.article, a.article:hover {
 
 .txini {
     font-size: 280%;
-    margin: 5% 0px 3% 0%;
+    margin: 0 auto 16px ;
     font-weight: 500;
     text-transform: uppercase;
     line-height: initial;
+
 }
 
  /* formulario de busqueda */
@@ -11425,4 +11426,75 @@ dl, ol, ul {
     list-style: none;
     margin-left: 0;
     padding: 0px 9px 0px 8px;
+}
+
+.product-list-style {
+	border-radius: 0px 0px 5px 5px;
+	float: left;
+	width: 100%;
+	color: #bc1e2c;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#bc1e2c+0,e22828+100 */
+	background: #bc1e2c; /* Old browsers */
+	background: -moz-linear-gradient(left,  #bc1e2c 0%, #e22828 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #bc1e2c 0%,#e22828 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #bc1e2c 0%,#e22828 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc1e2c', endColorstr='#e22828',GradientType=1 ); /* IE6-9 */
+
+
+	 }
+
+
+.product-list-style ul{
+	float: left;
+	width: 100%;
+	    padding: 6px;
+
+
+	 }
+
+.product-list-style ul li{
+	color: white;
+	 
+	 }
+
+ 
+	  
+
+.product-list-style ul li a >div{ 
+    width: 100%;
+    height: 100%;
+    float: left;
+        border-radius: 10px 0px 0px 10px;
+
+
+}
+
+.product-list-style ul li a >div:hover { 
+    background: orange;
+
+
+}
+
+
+.product-list-style ul li a >div div.float-child-left{ 
+	width: 30%;
+
+}
+.product-list-style ul li a >div div.float-child-left img{ 
+	width: 100%;
+    float: left;
+    border-radius: 10px;
+}
+
+
+.product-list-style ul li a >div div.float-child-right{
+    width: 69%;
+    margin-top: 3%;
+}
+
+.product-list-style ul li a >div div.float-child-right p{ 
+    font-size: 180%;
+	text-align: center;
+	vertical-align: middle;
+	    
 }

@@ -286,9 +286,9 @@
       <h3>{{ $item->footer_title }}</h3>
       <p> {{ $item->footer_description }}</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i>{{ $item->twitter }}</a><br/>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i>{{ $item->facebook }}</a><br/>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i>{{ $item->instagram }}</a><br/>
+        <a href="{{ $item->twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a><br/>
+        <a href="{{ $item->facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a><br/>
+        <a href="{{ $item->instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a><br/>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i>{{ $item->linkedin }}</a>
       </div>
       <div class="copyright">
@@ -305,10 +305,6 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-
-    
-
     
     <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}" ></script>
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" ></script>
@@ -319,7 +315,6 @@
     <script src="{{asset('assets/vendor/venobox/venobox.min.js')}}" ></script>
     <script src="{{asset('assets/vendor/owl.carousel/owl.carousel.min.js')}}" ></script>
     <script src="{{asset('assets/vendor/main.js')}}" ></script>
-
 
     <script type="text/javascript">
         $(document).ready(function () {

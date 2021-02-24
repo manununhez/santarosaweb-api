@@ -290,9 +290,9 @@
       <h3><?php echo e($item->footer_title, false); ?></h3>
       <p> <?php echo e($item->footer_description, false); ?></p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i><?php echo e($item->twitter, false); ?></a><br/>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i><?php echo e($item->facebook, false); ?></a><br/>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i><?php echo e($item->instagram, false); ?></a><br/>
+        <a href="<?php echo e($item->twitter, false); ?>" class="twitter"><i class="bx bxl-twitter"></i></a><br/>
+        <a href="<?php echo e($item->facebook, false); ?>" class="facebook"><i class="bx bxl-facebook"></i></a><br/>
+        <a href="<?php echo e($item->instagram, false); ?>" class="instagram"><i class="bx bxl-instagram"></i></a><br/>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i><?php echo e($item->linkedin, false); ?></a>
       </div>
       <div class="copyright">
@@ -309,10 +309,6 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-
-    
-
     
     <script src="<?php echo e(asset('assets/vendor/jquery/jquery.min.js'), false); ?>" ></script>
     <script src="<?php echo e(asset('assets/js/bootstrap.bundle.min.js'), false); ?>" ></script>
@@ -323,7 +319,6 @@
     <script src="<?php echo e(asset('assets/vendor/venobox/venobox.min.js'), false); ?>" ></script>
     <script src="<?php echo e(asset('assets/vendor/owl.carousel/owl.carousel.min.js'), false); ?>" ></script>
     <script src="<?php echo e(asset('assets/vendor/main.js'), false); ?>" ></script>
-
 
     <script type="text/javascript">
         $(document).ready(function () {
