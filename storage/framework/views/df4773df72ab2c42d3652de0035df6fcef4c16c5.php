@@ -161,17 +161,18 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Mostrar todo</li>
-              <li data-filter=".filter-starters">Entrantes</li>
-              <li data-filter=".filter-salads">Comida Rapida</li>
-              <li data-filter=".filter-specialty">Pizzas</li>
+		<?php $__currentLoopData = $productsByTag; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		<li data-filter=".filter-<?php echo e($key, false); ?>"><?php echo e($product[0]["tag"], false); ?></li>
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
         </div>
 
         <div class="row menu-container">          
             <!-- Aca deben listarse los productos de un local ! -->      
-            <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="col-lg-3 menu-item filter-specialty">
+	    <?php $__currentLoopData = $productsByTag; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$products): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	    <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-lg-3 menu-item filter-<?php echo e($key, false); ?>">
                   <a href="<?php echo e(asset( 'uploads/'.$product->image_url ), false); ?>" class="venobox" data-gall="gallery-item">
                               <img src="<?php echo e(asset( 'uploads/'.$product->image_url ), false); ?>" alt="" class="img-fluid">
                             </a>
@@ -186,8 +187,9 @@
                     <?php echo e($product->tag, false); ?>
 
                   </div>
-                </div>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+		</div>
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
       </div>

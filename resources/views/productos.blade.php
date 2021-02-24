@@ -159,17 +159,18 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Mostrar todo</li>
-              <li data-filter=".filter-starters">Entrantes</li>
-              <li data-filter=".filter-salads">Comida Rapida</li>
-              <li data-filter=".filter-specialty">Pizzas</li>
+		@foreach ($productsByTag as $key=>$product)
+		<li data-filter=".filter-{{$key}}">{{ $product[0]["tag"] }}</li>
+		@endforeach
             </ul>
           </div>
         </div>
 
         <div class="row menu-container">          
             <!-- Aca deben listarse los productos de un local ! -->      
-            @foreach ($products as $product)
-                <div class="col-lg-3 menu-item filter-specialty">
+	    @foreach ($productsByTag as $key=>$products)
+	    @foreach ($products as $product)
+                <div class="col-lg-3 menu-item filter-{{ $key }}">
                   <a href="{{asset( 'uploads/'.$product->image_url ) }}" class="venobox" data-gall="gallery-item">
                               <img src="{{asset( 'uploads/'.$product->image_url ) }}" alt="" class="img-fluid">
                             </a>
@@ -182,8 +183,9 @@
                   <div class="menu-ingredients">
                     {{ $product->tag }}
                   </div>
-                </div>
-              @endforeach
+		</div>
+ @endforeach
+	@endforeach
         </div>
 
       </div>

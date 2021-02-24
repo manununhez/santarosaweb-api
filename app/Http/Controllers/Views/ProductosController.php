@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Views;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use App\Section;
 use App\Category;
@@ -19,7 +20,12 @@ class ProductosController
                         ->get();
 
                 $productsByTag = $this->group_by("tag", $products);
-                return view('productos', [
+		
+		//Log::info(json_encode($productsByTag));
+		
+		//Log::info(json_encode($products));
+		
+		return view('productos', [
                         'section' => $section, 'category' => $category,
                         'item' => $item, 'products' => $products,
                         'productsByTag' => $productsByTag
@@ -38,11 +44,11 @@ class ProductosController
                 $result = array();
 
                 foreach ($data as $val) {
-                        if (array_key_exists($key, $val)) {
-                                $result[$val[$key]][] = $val;
-                        } else {
-                                $result[""][] = $val;
-                        }
+			//Lower case everything
+			$index = strtolower($val[$key]);
+			//Convert whitespaces and underscore to dash
+    			$index = preg_replace("/[\s_]/", "-", $index);
+			$result[$index][] = $val;
                 }
 
                 return $result;
